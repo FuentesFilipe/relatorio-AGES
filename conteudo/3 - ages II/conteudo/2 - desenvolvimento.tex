@@ -47,12 +47,53 @@ Em um processo iterativo com nossos AGES IV e AGES III, o modelo do banco passou
 Além das tabelas de usuários e postagens, foram criadas tabelas para os devocionais, vídeo aulas, comentários e eventos. A tabela de eventos foi criada para armazenar eventos que seriam exibidos no aplicativo, como encontros e palestras. Já a tabela de comentários teve o propósito de armazenar os comentários feitos pelos usuários nas vídeo aulas.
 
 \subsection{Arquitetura Utilizada}
-Deverão ser apresentados os links da Wiki, com uma breve descrição.
+A estrutura arquitetural do projeto é baseada no design de interação entre componentes distintos. Uma parte do sistema atua como requisitante de serviços ou recursos (o \textit{frontend}, ou cliente), enquanto outra é responsável por processar essas solicitações e fornecer as respostas correspondentes (a API, ou servidor).
+
+A API do projeto Soul Amada é executada em um container Docker hospedado em uma instância \ac{ec2} dentro de uma \ac{vpc} privada, com comunicação direta com o banco de dados da aplicação. O \textit{backend} utiliza o Supabase, uma solução escalável e autogerenciada, para armazenar os dados de forma eficiente.
+
+Para o armazenamento de arquivos, um bucket do \ac{s3} foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. É ilustrada esta arquitetura de \textit{cloud} na figura 17.
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama da arquitetura na nuvem do projeto Soul Amada}
+  \includegraphics[width=1\linewidth]{conteudo//3 - ages II//conteudo//figures/infra.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:infra-api}
+\end{figure}
+
+Referente aos \textit{deploys}, o da API ocorre automaticamente após um commit na branch "main" do repositório \textit{backend}. Um \textit{runner} do GitLab é acionado na própria instância EC2, responsável por executar os testes e aplicar as migrações do \textit{Prisma} \ac{orm} no banco de dados do Supabase. Em seguida, o \textit{runner} realiza o build da imagem atualizada da API, finalizando qualquer container em execução previamente e iniciando um novo container com a imagem recém-criada, garantindo a atualização do serviço de forma contínua e eficiente.
+
+O \textit{deploy} do front end também utiliza este mesmo \textit{runner} na EC2 para realizar  a criação da \ac{apk} e da \ac{ipa}. Este \textit{runner} enviará estes arquivos para uma pasta de releases no S3, onde o download das versões será disponibilizado. As figuras 18 e 19 ilustram o fluxo de \textit{deploy} do \textit{backend} e do \textit{frontend}, respectivamente.
+
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama da pipeline de \textit{deploy} da API do projeto Soul Amada}
+  \includegraphics[width=1\linewidth]{conteudo//3 - ages II//conteudo//figures/infra-pipe.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:infra-api-deploy}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama da pipeline de \textit{deploy} do \textit{frontend} do projeto Soul Amada}
+  \includegraphics[width=1\linewidth]{conteudo//3 - ages II//conteudo//figures/infra-pipe-front.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:infra-front-deploy}
+\end{figure}
+
+
+
 
 \subsection{Protótipos das Telas Desenvolvidas}
 Deverão ser apresentados os links da Wiki, com uma breve descrição.
 
 \subsection{Tecnologias Utilizadas}
-Deverão ser apresentados os links da Wiki, com uma breve descrição.
 
-As tecnologias citadas deverão ter referências bibliográficas.
+De uma maneira geral a tecnologia mais utilizada foi a linguagem TypeScript, tanto no \textit{frontend} quanto no \textit{backend} e diferenciando-se apenas nos \textit{frameworks} utilizados. No \textit{frontend} foi utilizado o React Native, enquanto no \textit{backend} foi utilizado o Nest.js. Além disso, o \ac{sgbd} utilizado foi o Supabase, que é um banco de dados PostgreSQL com uma camada de abstração para facilitar o uso.
+
+Recursos da AWS também foram utilizados, como o EC2, S3 e API Gateway. O EC2 foi utilizado para hospedar a API, o S3 para armazenar arquivos e o API Gateway para redirecionar chamadas para a instância EC2.
