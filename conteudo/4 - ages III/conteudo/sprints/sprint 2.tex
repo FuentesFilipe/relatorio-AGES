@@ -1,3 +1,17 @@
 \subsection{Sprint 2}
 
-No mínimo uma página contendo tudo que o aluno fez na Sprint 2.
+Iniciei o trabalho realizando diversas alterações no diagrama de arquitetura conforme as solicitações do arquiteto. Durante esse processo, também precisei lidar com algumas particularidades envolvendo nossa equipe como: alguns trabalhando como “heróis” enquanto outros tentavam se esquivar de suas atribuições. Em paralelo, ofereci suporte aos AGES I e II na configuração do ambiente Docker, algo que gerou problemas até o final do projeto. 
+
+Outro ponto importante foi a preparação do ambiente na AWS, incluindo a criação da nossa instância EC2 e os testes de conexão via SSH. Esse processo exigiu uma série de depurações, já que inicialmente houve falhas ao tentar conectar ao servidor. Continuei investigando o problema até identificar a causa: embora o \textit{security group} da máquina estivesse aparentemente com tudo liberado, a conexão só funcionou após liberar explicitamente a porta 22 para SSH. Com o acesso finalmente resolvido, avancei para os testes iniciais de deploy das aplicações front-end e back-end, iniciando a validação do ambiente e preparando o caminho para as próximas etapas do desenvolvimento.
+\\
+
+\fbox{%
+    \parbox{0.95\linewidth}{%
+        \setlength{\parindent}{15pt}
+            \itshape Infelizmente nosso trabalho na infra e arquitetura só pode começar a este ponto, tudo isso por fatores que posso constar como culpa nossas quanto culpa do time da AGES. Até esta parte do semestre, não houve nenhum apoio para nós em termos de: onde encontrar instruções sobre orçamento da AWS, criação do repo da Wiki, ou acompanhamento do arquiteto com noss otime. 
+
+            Isso causou uma confusão entre nós AGES III, que acabamos depois desse tempo a ir conversar com o arquiteto da AGES para sanar nossas dúvidas. E só nesse ponto que descobrimos que essencialmente já era para nós sabermos o que fazer e onde conseguir. 
+
+            Senti muita falta de direcionamento, por mais que há um argumento de que nós alunos que temos de ser proativos, de nada adianta caso falte um mínimo de instruções para nós. Se tivesse uma conversa no começo do semestre com noss otime, nem que fosse um amensagem por email, definitivamente teríamos adiantado muita coisa nessa sprint e consequentemente pro restante do semestre.
+    }%
+}
