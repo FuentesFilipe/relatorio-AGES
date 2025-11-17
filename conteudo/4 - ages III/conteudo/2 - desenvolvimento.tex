@@ -1,19 +1,23 @@
 \section[Desenvolvimento do Projeto]{Desenvolvimento do Projeto}
 
 \subsection{Repositório do Código Fonte do Projeto}
-  Fizemos três repos: \textit{Wiki}, \textit{backend} e \textit{frontend}. (citar algo a mais sobre eles mais além)
+Nossa estrutura de versionamento seguiu uma lógica similar aos projetos passados, sendo distribuída em três repositórios principais: \textit{Wiki}, \textit{backend} e \textit{frontend}. Cada um deles teve um papel bem definido dentro do ciclo de desenvolvimento:
 
-  Wiki: \url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/wiki/-/wikis/home}
+O repositório \textit{Wiki} concentrou a documentação geral do projeto, servindo de base para o registro de decisões, requisitos, modelos e materiais de apoio:
+\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/wiki/-/wikis/home}.
 
-  backend: \url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/frontend}
+O repositório \textit{backend} armazenou o código responsável pela API, lógica de negócio e integrações do sistema:
+\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/backend}.
 
-  frontend: \url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/backend}
+Por fim, o repositório \textit{frontend} manteve o código da interface do usuário, incluindo telas, componentes e lógica de interação:
+\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/frontend}
+
 
 
 \subsection{Banco de Dados Utilizado}
-  Esquema inicial proposto pelos AGES II segue na figura XYZ.
+O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Dado a alta complexidade do armazenamento dos dados neste projeto, nosso banco passou por constante iteração. O esquema inicial proposto pelos AGES II segue na figura 27.
 
-  \begin{figure}[H]
+\begin{figure}[H]
   \centering
   \small
   \caption{Diagrama lógico inicial do banco de dados do projeto WeConecta}
@@ -22,8 +26,50 @@
   \label{fig:db-logical-wecon}
 \end{figure}
 
+Após algumas sprints de desenvolvimento e \textit{feedbacks} dos \textit{stakeholders}, o time fechou o projeto com os seguintes esquemas finais conceitual e lógico, dados pelas figuras 28 e 29 respectivamente
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama conceitual final do banco de dados do projeto WeConecta}
+  \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/banco-final-conceitual.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:db-concept-wecon}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama lógico final do banco de dados do projeto WeConecta}
+  \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/banco-final-lógico2.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:db-logic-wecon}
+\end{figure}
+
 \subsection{Arquitetura Utilizada}
-  Deverão ser apresentados os links da Wiki, com uma breve descrição.
+
+A concepção inicial da arquitetura foi pensada com foco em simplicidade, custo e fluidez operacional. Nessa configuração, o \textit{frontend} foi hospedado no AWS Amplify, a fins de facilidade no deploy e \ac{cicd}. Já o \textit{backend} iria residir em uma instância EC2 dentro de uma \textit{subnet} privada, containerizada via Docker.
+A comunicação entre o cliente e o backend seria mediada pelo AWS API Gateway, que iria direcionar as requisições para nossa API. Essa API se comunicava diretamente com a instância de banco de dados dentro da mesma VPC, mantendo segurança e isolamento da infraestrutura. Essa idealização consta na figura 30 abaixo.
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama inicial da infraestrutura \textit{cloud} do projeto WeConecta}
+  \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/init-infra.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:infra-init}
+\end{figure}
+
+Porém com o avanço do projeto, surgiram alguns contratempos relacionados a AWS. Isso nos levou a nova estrutura conforme mostra na figura 31 logo a seguir
+A estrutura final concreta posiciona a instância EC2 em uma \textit{subnet} pública, de forma que o frontend comunica-se diretamente com o \textit{backend}, sem a mediação do API Gateway. O banco de dados seguiu sendo hospedado na mesma EC2 que a API, e o \textit{frontend} também não sofreu alterações quanto ao serviço Amplify para fins de deploy.
+
+\begin{figure}[H]
+  \centering
+  \small
+  \caption{Diagrama inicial da infraestrutura \textit{cloud} do projeto WeConecta}
+  \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/final-infra.png}
+  Fonte: \textit{Wiki} do projeto
+  \label{fig:final-infra}
+\end{figure}
 
 \subsection{Protótipos das Telas Desenvolvidas}
   Deverão ser apresentados os links da Wiki, com uma breve descrição.
