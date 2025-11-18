@@ -75,6 +75,6 @@ A estrutura final concreta posiciona a instância EC2 em uma \textit{subnet} pú
   Deverão ser apresentados os links da Wiki, com uma breve descrição.
 
 \subsection{Tecnologias Utilizadas}
-  Deverão ser apresentados os links da Wiki, com uma breve descrição.
-  
-  As tecnologias citadas deverão ter referências bibliográficas.
+A base do desenvolvimento concentrou-se em TypeScript, escolhida tanto para o lado do servidor quanto para a aplicação do usuário, permitindo padronização e consitência no \textit{onboarding} da equipe. O \textit{backend} foi construído utilizando NestJS, adotado por sua arquitetura modular e já opinionada. No \textit{frontend}, a escolha recaiu sobre o Next.js, que possibilitou a criação de interfaces dinâmicas de acordo já com as sugestões e requisitos dos \textit{stakeholders}. Por fim mas não menos importante, no armazenamento de dados optou-se pelo SGBD PostgreSQL.
+
+A infraestrutura foi sustentada principalmente por serviços da AWS, com uma instância EC2 dedicada à execução do \textit{backend} e do banco de dados. Já o AWS Amplify ficou responsável pelo fluxo de disponibilização do \textit{frontend}, em tese facilitando atualizações e garantindo estabilidade. Complementando essa arquitetura, o GitLab CI foi utilizado para orquestrar \textit{pipelines} de integração contínua, permitindo automatizar tarefas como \textit{build}, testes e \textit{deploy}, além de garantir maior rastreabilidade durante o ciclo de desenvolvimento.
