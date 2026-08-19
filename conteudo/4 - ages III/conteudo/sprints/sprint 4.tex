@@ -1,3 +1,16 @@
 \subsection{Sprint 4}
 
-No mínimo uma página contendo tudo que o aluno fez na Sprint 4.
+ Na sprint final, comecei resolvendo o problema crítico de memória no servidor do \textit{backend} da sprint passada, que estava impactando diretamente os processos de build e execução. Em seguida, também finalmente registrei o GitLab \textit{Runner} diretamente nesse servidor para consolidar o fluxo de \textit{deploy} do \textit{backend}. 
+ 
+ A partir daí, iniciei uma nova série de depurações relacionadas ao \textit{Runner}: surgiram múltiplos problemas de permissão para execução de comandos no nosso servidor, além de erros envolvendo operações do Git, de novo permissões e falhas em operações de git fetch. O processo ainda esbarrou em um erro final de falta de memória, impedindo o build de prosseguir até que os ajustes necessários fossem feitos. 
+ 
+ Após superar essas barreiras, o \textit{deploy} automático do \textit{backend} via \textit{Runner} finalmente ficou pronto e funcional. Nesse tempo, continuei tentando automatizar o \textit{deploy} do frontend utilizando webhooks, mas, apesar das tentativas e do tempo que tínhamos, essa etapa acabou faltando no projeto.
+\\
+
+ \fbox{%
+    \parbox{0.95\linewidth}{%
+        \setlength{\parindent}{15pt}
+            \itshape Por fim, depois de longas sessões de depuração posso dizer que não entendo o por quê temos uma própria instância do GitLab hospedada. Caso utilizássemos o próprio GitLab out teríamos muito menos dificuldades.
+            Justamente por essas longas sessões que somente conseguimos hospedar com pipeline automática o backend, diferentemente do frontend.
+    }%
+}
