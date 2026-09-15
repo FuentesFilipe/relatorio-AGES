@@ -1,19 +1,19 @@
 \subsection{Sprint 3}
 
-Esta sprint se destacou por uma luta minha a tentar configurar um \textit{Runner} do GitLab, algo que em tese era necessário para \textit{pipelines} escritas no GitLab. Enquanto montava o ambiente do servidor, avancei para os primeiros testes de deploy do backend e do banco de dados. Nesse ponto, surgiu a dúvida sobre abandonar o Runner, mas logo ficou claro que, para utilizar o GitLab CI de forma completa, o uso do \textit{Runner} era obrigatório.
+Esta \textit{sprint} se destacou pelo meu esforço para configurar um \textit{Runner} do GitLab, algo que, em tese, era necessário para executar as \textit{pipelines} escritas no GitLab. Enquanto montava o ambiente do servidor, avancei para os primeiros testes de \textit{deploy} do \textit{backend} e do banco de dados. Nesse ponto, surgiu a dúvida sobre abandonar o \textit{Runner}, mas logo ficou claro que, para utilizar o GitLab CI de forma completa, seu uso era obrigatório.
 
-Com isso, prossegui instalando e configurando o Runner especificamente para habilitar o deploy automático do \textit{backend}. Após alguns ajustes, consegui realizar um deploy parcial do serviço, ainda pendente apenas da automação do merge para a branch master.
+Com isso, prossegui instalando e configurando o \textit{Runner} especificamente para habilitar o \textit{deploy} automático do \textit{backend}. Após alguns ajustes, consegui realizar um \textit{deploy} parcial do serviço, ainda pendente apenas da automação do \textit{merge} para a \textit{branch master}.
 
-Em paralelo, comecei a estruturar o processo de deploy do front-end. A ideia inicial era montar uma automação que seguisse o fluxo “\textit{GitLab merge → webhook → GitHub Action → git fetch + push → Amplify auto deploy}”. Isso porque o serviço escolhido na AWS (Amplify) não conseguiria acionar o deploy automaticamente devido ao fato de o GitLab utilizado pela AGES ser uma instância hospedada internamente (algo que descobrimos muito tarde). Com essa limitação em mente, passei a testar webhooks do GitLab para disparar as ações necessárias no GitHub e, assim, viabilizar o processo de deploy.
+Em paralelo, comecei a estruturar o processo de \textit{deploy} do \textit{frontend}. A ideia inicial era montar uma automação que seguisse o fluxo “\textit{GitLab merge → webhook → GitHub Action → git fetch + push → Amplify auto deploy}”. Isso porque o serviço escolhido na AWS (Amplify) não conseguiria acionar o \textit{deploy} automaticamente devido ao fato de o GitLab utilizado pela AGES ser uma instância hospedada internamente, algo que descobrimos muito tarde. Com essa limitação em mente, passei a testar \textit{webhooks} do GitLab para disparar as ações necessárias no GitHub e, assim, viabilizar o processo de \textit{deploy}.
 
-Segui tentando integrar e automatizar os deploys tanto do \textit{backend} quanto do \textit{frontend}, mas novamente acabei esbarrando em dificuldades com o \textit{Runner} no \textit{backend} e falta de memória na nossa EC2, exigindo novas rodadas de ajustes e investigação.
+Segui tentando integrar e automatizar os \textit{deploys} tanto do \textit{backend} quanto do \textit{frontend}, mas novamente acabei esbarrando em dificuldades com o \textit{Runner} no \textit{backend} e com a falta de memória na nossa EC2, o que exigiu novas rodadas de ajustes e investigação.
 \\
 
 \fbox{%
     \parbox{0.95\linewidth}{%
         \setlength{\parindent}{15pt}
-            \itshape Ao longo do projeto os problemas foram diminuindo, porém nessa sprint ficou evidente o preço que pagamos por começar a infra tão tarde. Tentei escolher serviços em tese simples e fáceis, que na verdade geraram apenas dor de cabeça para o desenvolvimento.
+            \itshape Ao longo do projeto, os problemas foram diminuindo. Porém, nessa \textit{sprint}, ficou evidente o preço que pagamos por começar a infraestrutura tão tarde. Tentei escolher serviços, em tese, simples e fáceis, mas que, na verdade, geraram apenas dor de cabeça durante o desenvolvimento.
 
-            Tirando todo a depuração na infra, essa sprint foi relativamente tranquila.
+            Tirando todo o trabalho de depuração na infraestrutura, essa \textit{sprint} foi relativamente tranquila.
     }%
 }

@@ -3,19 +3,16 @@
 \subsection{Repositório do Código Fonte do Projeto}
 Nossa estrutura de versionamento seguiu uma lógica similar aos projetos passados, sendo distribuída em três repositórios principais: \textit{Wiki}, \textit{backend} e \textit{frontend}. Cada um deles teve um papel bem definido dentro do ciclo de desenvolvimento:
 
-O repositório \textit{Wiki} concentrou a documentação geral do projeto, servindo de base para o registro de decisões, requisitos, modelos e materiais de apoio:
-\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/wiki/-/wikis/home}.
+O repositório \textit{Wiki} concentrou a documentação geral do projeto, servindo de base para o registro de decisões, requisitos, modelos e materiais de apoio. O conteúdo está disponível na \href{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/wiki/-/wikis/home}{\textit{Wiki} do projeto}.
 
-O repositório \textit{backend} armazenou o código responsável pela API, lógica de negócio e integrações do sistema:
-\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/backend}.
+O repositório \textit{backend} armazenou o código responsável pela API, pela lógica de negócio e pelas integrações do sistema. O código está disponível no \href{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/backend}{repositório \textit{backend}}.
 
-Por fim, o repositório \textit{frontend} manteve o código da interface do usuário, incluindo telas, componentes e lógica de interação:
-\url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/frontend}
+Por fim, o repositório \textit{frontend} manteve o código da interface do usuário, incluindo telas, componentes e lógica de interação. O código está disponível no \href{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/frontend}{repositório \textit{frontend}}.
 
 
 
 \subsection{Banco de Dados Utilizado}
-O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Dado a alta complexidade do armazenamento dos dados neste projeto, nosso banco passou por constante iteração. O esquema inicial proposto pelos AGES II segue na figura 27.
+O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Dada a alta complexidade do armazenamento dos dados neste projeto, nosso banco passou por constantes iterações. O esquema inicial proposto pelos AGES II é apresentado na Figura~\ref{fig:db-logical-wecon}.
 
 \begin{figure}[H]
   \centering
@@ -26,7 +23,7 @@ O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de d
   \label{fig:db-logical-wecon}
 \end{figure}
 
-Após algumas sprints de desenvolvimento e \textit{feedbacks} dos \textit{stakeholders}, o time fechou o projeto com os seguintes esquemas finais conceitual e lógico, dados pelas figuras 28 e 29 respectivamente
+Após algumas \textit{sprints} de desenvolvimento e retornos dos \textit{stakeholders}, o time encerrou o projeto com os esquemas finais conceitual e lógico apresentados nas Figuras~\ref{fig:db-concept-wecon} e~\ref{fig:db-logic-wecon}, respectivamente.
 \begin{figure}[H]
   \centering
   \small
@@ -47,8 +44,8 @@ Após algumas sprints de desenvolvimento e \textit{feedbacks} dos \textit{stakeh
 
 \subsection{Arquitetura Utilizada}
 
-A concepção inicial da arquitetura foi pensada com foco em simplicidade, custo e fluidez operacional. Nessa configuração, o \textit{frontend} foi hospedado no AWS Amplify, a fins de facilidade no deploy e \ac{cicd}. Já o \textit{backend} iria residir em uma instância EC2 dentro de uma \textit{subnet} privada, containerizada via Docker.
-A comunicação entre o cliente e o backend seria mediada pelo AWS API Gateway, que iria direcionar as requisições para nossa API. Essa API se comunicava diretamente com a instância de banco de dados dentro da mesma VPC, mantendo segurança e isolamento da infraestrutura. Essa idealização consta na figura 30 abaixo.
+A concepção inicial da arquitetura teve como foco a simplicidade, o custo e a fluidez operacional. Nessa configuração, o \textit{frontend} seria hospedado no AWS Amplify, a fim de facilitar o \textit{deploy} e a \ac{cicd}. Já o \textit{backend} residiria em uma instância EC2 dentro de uma \textit{subnet} privada, containerizada via Docker.
+A comunicação entre o cliente e o \textit{backend} seria mediada pelo AWS API Gateway, que direcionaria as requisições para nossa API. Essa API se comunicaria diretamente com a instância de banco de dados dentro da mesma VPC, mantendo a segurança e o isolamento da infraestrutura. Essa idealização é apresentada na Figura~\ref{fig:infra-init}.
 
 \begin{figure}[H]
   \centering
@@ -59,25 +56,25 @@ A comunicação entre o cliente e o backend seria mediada pelo AWS API Gateway, 
   \label{fig:infra-init}
 \end{figure}
 
-Porém com o avanço do projeto, surgiram alguns contratempos relacionados a AWS. Isso nos levou a nova estrutura conforme mostra na figura 31 logo a seguir
-A estrutura final concreta posiciona a instância EC2 em uma \textit{subnet} pública, de forma que o frontend comunica-se diretamente com o \textit{backend}, sem a mediação do API Gateway. O banco de dados seguiu sendo hospedado na mesma EC2 que a API, e o \textit{frontend} também não sofreu alterações quanto ao serviço Amplify para fins de deploy.
+Porém, com o avanço do projeto, surgiram alguns contratempos relacionados à AWS. Isso nos levou à nova estrutura apresentada na Figura~\ref{fig:final-infra}.
+A estrutura final posiciona a instância EC2 em uma \textit{subnet} pública, de forma que o \textit{frontend} se comunica diretamente com o \textit{backend}, sem a mediação do API Gateway. O banco de dados continuou hospedado na mesma EC2 que a API, e o \textit{frontend} também não sofreu alterações quanto ao uso do serviço Amplify para fins de \textit{deploy}.
 
 \begin{figure}[H]
   \centering
   \small
-  \caption{Diagrama inicial da infraestrutura \textit{cloud} do projeto WeConecta}
+  \caption{Diagrama final da infraestrutura \textit{cloud} do projeto WeConecta}
   \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/final-infra.png}
   Fonte: \textit{Wiki} do projeto
   \label{fig:final-infra}
 \end{figure}
 
 \subsection{Protótipos das Telas Desenvolvidas}
-  As telas desenvolvidas pelo time constam a seguir nas figuras 32 a 40
+As telas desenvolvidas pelo time são apresentadas nas Figuras~\ref{fig:screen1} a~\ref{fig:screen10}.
 
 \begin{figure}[H]
   \centering
   \small
-  \caption{Dashboard (Home) – Todos usuários}
+  \caption{Dashboard (Home) – Todos os usuários}
   \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/dashboard-home.png}
   Fonte: Autor
   \label{fig:screen1}
@@ -86,7 +83,7 @@ A estrutura final concreta posiciona a instância EC2 em uma \textit{subnet} pú
 \begin{figure}[H]
   \centering
   \small
-  \caption{Visualização dos questionários – Todos usuários}
+  \caption{Visualização dos questionários – Todos os usuários}
   \includegraphics[width=1\linewidth]{conteudo//4 - ages III//conteudo//figures/survey-all-users.png}
   Fonte: Autor
   \label{fig:screen2}
@@ -157,6 +154,6 @@ A estrutura final concreta posiciona a instância EC2 em uma \textit{subnet} pú
 
 
 \subsection{Tecnologias Utilizadas}
-A base do desenvolvimento concentrou-se em TypeScript, escolhida tanto para o lado do servidor quanto para a aplicação do usuário, permitindo padronização e consitência no \textit{onboarding} da equipe. O \textit{backend} foi construído utilizando NestJS, adotado por sua arquitetura modular e já opinionada. No \textit{frontend}, a escolha recaiu sobre o Next.js, que possibilitou a criação de interfaces dinâmicas de acordo já com as sugestões e requisitos dos \textit{stakeholders}. Por fim mas não menos importante, no armazenamento de dados optou-se pelo SGBD PostgreSQL.
+A base do desenvolvimento concentrou-se na linguagem TypeScript, escolhida tanto para o lado do servidor quanto para a aplicação do usuário, permitindo padronização e consistência no \textit{onboarding} da equipe. O \textit{backend} foi construído com NestJS, adotado por sua arquitetura modular e opinativa. No \textit{frontend}, a escolha recaiu sobre o Next.js, que possibilitou a criação de interfaces dinâmicas de acordo com as sugestões e os requisitos dos \textit{stakeholders}. Para o armazenamento de dados, optou-se pelo SGBD PostgreSQL.
 
-A infraestrutura foi sustentada principalmente por serviços da AWS, com uma instância EC2 dedicada à execução do \textit{backend} e do banco de dados. Já o AWS Amplify ficou responsável pelo fluxo de disponibilização do \textit{frontend}, em tese facilitando atualizações e garantindo estabilidade. Complementando essa arquitetura, o GitLab CI foi utilizado para orquestrar \textit{pipelines} de integração contínua, permitindo automatizar tarefas como \textit{build}, testes e \textit{deploy}, além de garantir maior rastreabilidade durante o ciclo de desenvolvimento.
+A infraestrutura foi sustentada principalmente por serviços da AWS, com uma instância EC2 dedicada à execução do \textit{backend} e do banco de dados. Já o AWS Amplify ficou responsável pelo fluxo de disponibilização do \textit{frontend}, em tese, facilitando atualizações e garantindo estabilidade. Complementando essa arquitetura, o GitLab CI foi utilizado para orquestrar \textit{pipelines} de integração contínua, permitindo automatizar tarefas como \textit{build}, testes e \textit{deploy}, além de garantir maior rastreabilidade durante o ciclo de desenvolvimento.
