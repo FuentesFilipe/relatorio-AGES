@@ -1,11 +1,13 @@
 {
   "name": "AGES LaTeX",
-  "image": "ghcr.io/xu-cheng/texlive-full",
-  "runArgs": ["--privileged"],
+    "build": {
+    "dockerfile": "Dockerfile"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
-        "James-Yu.latex-workshop"
+        "James-Yu.latex-workshop",
+        "openai.chatgpt"
       ],
       "settings": {
         "latex-workshop.docker.enabled": false,
