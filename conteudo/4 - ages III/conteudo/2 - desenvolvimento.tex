@@ -12,7 +12,9 @@ Por fim, o repositório \textit{frontend} manteve o código da interface do usu�
 
 
 \subsection{Banco de Dados Utilizado}
-O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Dada a alta complexidade do armazenamento dos dados neste projeto, nosso banco passou por constantes iterações. O esquema inicial proposto pelos AGES II é apresentado na Figura~\ref{fig:db-logical-wecon}.
+O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Conforme registrado na \textit{Wiki} do projeto, a escolha considerou a robustez do sistema, sua consistência transacional, o suporte nativo a JSON e sua adequação a modelos que combinam dados relacionais e estruturas em JSON. Essas características eram pertinentes ao projeto porque o sistema precisava manter relações entre usuários, questionários, elementos e respostas, além de representar o fluxo configurável de cada questionário.
+
+O esquema lógico inicial, proposto pelos AGES II e apresentado na Figura~\ref{fig:db-logical-wecon}, organizava o domínio em torno das entidades de usuário, questionário, mensagem, alternativa e resposta. Entidades associativas também representavam a colaboração de usuários nos questionários e as conexões entre as mensagens que compunham cada fluxo.
 
 \begin{figure}[H]
   \centering
@@ -23,7 +25,7 @@ O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de d
   \label{fig:db-logical-wecon}
 \end{figure}
 
-Após algumas \textit{sprints} de desenvolvimento e retornos dos \textit{stakeholders}, o time encerrou o projeto com os esquemas finais conceitual e lógico apresentados nas Figuras~\ref{fig:db-concept-wecon} e~\ref{fig:db-logic-wecon}, respectivamente.
+À medida que o desenvolvimento avançou e o time recebeu retornos dos \textit{stakeholders}, o modelo passou por sucessivas revisões. Nos esquemas finais, as mensagens e os demais componentes dos questionários foram consolidados como elementos de questionário, enquanto suas possíveis opções passaram a ser representadas separadamente. O modelo conceitual foi elaborado com o brModelo, e o modelo lógico, com o dbdiagram.io. Os resultados são apresentados nas Figuras~\ref{fig:db-concept-wecon} e~\ref{fig:db-logic-wecon}, respectivamente.
 \begin{figure}[H]
   \centering
   \small
@@ -41,6 +43,10 @@ Após algumas \textit{sprints} de desenvolvimento e retornos dos \textit{stakeho
   Fonte: \textit{Wiki} do projeto
   \label{fig:db-logic-wecon}
 \end{figure}
+
+O modelo final ficou organizado em seis tabelas principais. A tabela \textit{users} armazena os usuários e seus papéis no sistema, enquanto \textit{surveys} reúne os questionários, seus metadados, o responsável por sua criação e a estrutura do fluxo em JSON. A relação de colaboração entre usuários e questionários é mantida por \textit{users\_surveys}. As tabelas \textit{survey\_elements} e \textit{options} representam, respectivamente, os elementos que compõem um questionário e as opções vinculadas a eles. Por fim, \textit{survey\_answers} associa as respostas ao questionário, ao elemento respondido e, quando aplicável, à opção escolhida, permitindo também o armazenamento de respostas textuais.
+
+A documentação detalhada do banco de dados está disponível em: \url{https://tools.ages.pucrs.br/weconecta-plataforma-digital-para-question-rios-de-sa-de/wiki/-/wikis/banco_dados}.
 
 \subsection{Arquitetura Utilizada}
 
