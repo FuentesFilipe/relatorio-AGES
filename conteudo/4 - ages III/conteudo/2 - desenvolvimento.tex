@@ -12,7 +12,7 @@ Por fim, o repositório \textit{frontend} manteve o código da interface do usu�
 
 
 \subsection{Banco de Dados Utilizado}
-O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Conforme registrado na \textit{Wiki} do projeto, a escolha considerou a robustez do sistema, sua consistência transacional, o suporte nativo a JSON e sua adequação a modelos que combinam dados relacionais e estruturas em JSON. Essas características eram pertinentes ao projeto porque o sistema precisava manter relações entre usuários, questionários, elementos e respostas, além de representar o fluxo configurável de cada questionário.
+O projeto WeConecta utilizou o PostgreSQL como sistema gerenciador de banco de dados. Conforme registrado na \textit{Wiki} do projeto, a escolha considerou a robustez do sistema, sua consistência transacional, o suporte nativo a JSON e sua adequação a modelos que combinam dados relacionais e estruturas em JSON. Essas características eram pertinentes ao projeto porque o sistema precisava manter relações entre usuários, questionários, elementos e respostas, além de representar o fluxo configurável de cada questionário \cite{postgresql}.
 
 O esquema lógico inicial, proposto pelos AGES II e apresentado na Figura~\ref{fig:db-logical-wecon}, organizava o domínio em torno das entidades de usuário, questionário, mensagem, alternativa e resposta. Entidades associativas também representavam a colaboração de usuários nos questionários e as conexões entre as mensagens que compunham cada fluxo.
 
@@ -25,7 +25,7 @@ O esquema lógico inicial, proposto pelos AGES II e apresentado na Figura~\ref{f
   \label{fig:db-logical-wecon}
 \end{figure}
 
-À medida que o desenvolvimento avançou e o time recebeu retornos dos \textit{stakeholders}, o modelo passou por sucessivas revisões. Nos esquemas finais, as mensagens e os demais componentes dos questionários foram consolidados como elementos de questionário, enquanto suas possíveis opções passaram a ser representadas separadamente. O modelo conceitual foi elaborado com o brModelo, e o modelo lógico, com o dbdiagram.io. Os resultados são apresentados nas Figuras~\ref{fig:db-concept-wecon} e~\ref{fig:db-logic-wecon}, respectivamente.
+À medida que o desenvolvimento avançou e o time recebeu retornos dos \textit{stakeholders}, o modelo passou por sucessivas revisões. Nos esquemas finais, as mensagens e os demais componentes dos questionários foram consolidados como elementos de questionário, enquanto suas possíveis opções passaram a ser representadas separadamente. O modelo conceitual foi elaborado com o brModelo, e o modelo lógico, com o dbdiagram.io \cite{brmodelo,dbdiagram}. Os resultados são apresentados nas Figuras~\ref{fig:db-concept-wecon} e~\ref{fig:db-logic-wecon}, respectivamente.
 \begin{figure}[H]
   \centering
   \small
@@ -160,6 +160,6 @@ As telas desenvolvidas pelo time são apresentadas nas Figuras~\ref{fig:screen1}
 
 
 \subsection{Tecnologias Utilizadas}
-A base do desenvolvimento concentrou-se na linguagem TypeScript, escolhida tanto para o lado do servidor quanto para a aplicação do usuário, permitindo padronização e consistência no \textit{onboarding} da equipe. O \textit{backend} foi construído com NestJS, adotado por sua arquitetura modular e opinativa. No \textit{frontend}, a escolha recaiu sobre o Next.js, que possibilitou a criação de interfaces dinâmicas de acordo com as sugestões e os requisitos dos \textit{stakeholders}. Para o armazenamento de dados, optou-se pelo SGBD PostgreSQL.
+A base do desenvolvimento concentrou-se na linguagem TypeScript, escolhida tanto para o lado do servidor quanto para a aplicação do usuário, permitindo padronização e consistência no \textit{onboarding} da equipe. O \textit{backend} foi construído com NestJS, adotado por sua arquitetura modular e opinativa. No \textit{frontend}, a escolha recaiu sobre o Next.js, que possibilitou a criação de interfaces dinâmicas de acordo com as sugestões e os requisitos dos \textit{stakeholders}. Para o armazenamento de dados, optou-se pelo SGBD PostgreSQL \cite{typescript,nestjs,nextjs,postgresql}.
 
-A infraestrutura foi sustentada principalmente por serviços da AWS, com uma instância EC2 dedicada à execução do \textit{backend} e do banco de dados. Já o AWS Amplify ficou responsável pelo fluxo de disponibilização do \textit{frontend}, em tese, facilitando atualizações e garantindo estabilidade. Complementando essa arquitetura, o GitLab CI foi utilizado para orquestrar \textit{pipelines} de integração contínua, permitindo automatizar tarefas como \textit{build}, testes e \textit{deploy}, além de garantir maior rastreabilidade durante o ciclo de desenvolvimento.
+A infraestrutura foi sustentada principalmente por serviços da AWS, com uma instância EC2 dedicada à execução do \textit{backend} e do banco de dados. Já o AWS Amplify ficou responsável pelo fluxo de disponibilização do \textit{frontend}, em tese, facilitando atualizações e garantindo estabilidade. Complementando essa arquitetura, o GitLab CI foi utilizado para orquestrar \textit{pipelines} de integração contínua, permitindo automatizar tarefas como \textit{build}, testes e \textit{deploy}, além de garantir maior rastreabilidade durante o ciclo de desenvolvimento \cite{aws-docs,gitlab-ci}.
