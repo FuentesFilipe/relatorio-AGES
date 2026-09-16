@@ -1,8 +1,10 @@
 {
   "name": "AGES LaTeX",
-    "build": {
+
+  "build": {
     "dockerfile": "Dockerfile"
   },
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,6 +19,10 @@
       }
     }
   },
+
+  "mounts": [
+    "source=codex-data,target=/root/.codex,type=volume"
+  ],
 
   "remoteUser": "root"
 }
