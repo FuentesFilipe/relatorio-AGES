@@ -214,6 +214,26 @@ O protótipo interativo está disponível em:
 \url{https://claude.ai/code/artifact/df0c9e12-2bb6-4ee6-8bbd-a6690a72687c}.
 
 \subsection{Tecnologias Utilizadas}
-  Deverão ser apresentados os links da Wiki, com uma breve descrição.
-  
-  As tecnologias citadas deverão ter referências bibliográficas.
+A definição tecnológica do projeto foi organizada em camadas, de acordo com as
+responsabilidades do \textit{frontend}, do \textit{backend}, da persistência de
+dados e da infraestrutura. No \textit{frontend}, foi adotado o React para a
+construção da interface. O TanStack Router é utilizado para estruturar a navegação
+entre as telas, enquanto o TanStack Query concentra as requisições e o
+gerenciamento do estado assíncrono associado aos dados da API
+\cite{react,tanstack-router,tanstack-query}.
+
+No \textit{backend}, a aplicação utiliza Python e FastAPI para a implementação da
+API. O acesso ao banco de dados é realizado pelo SQLAlchemy, empregado como ORM,
+e o Alembic é responsável pelo controle das migrações do esquema de dados
+\cite{python,fastapi,sqlalchemy,alembic}. O PostgreSQL foi definido como sistema
+gerenciador de banco de dados, conforme apresentado na Subseção 5.2.2
+\cite{postgresql}.
+
+Para a disponibilização da solução, a arquitetura planejada utiliza Docker para
+empacotar a API e serviços da AWS para hospedagem, autenticação, dados,
+armazenamento e automação. Entre eles estão AWS Amplify, Amazon Route 53, Amazon
+Cognito, Amazon EC2, Amazon ECR, AWS Secrets Manager, Amazon RDS, Amazon S3,
+Amazon CloudWatch e AWS CodeBuild. O GitHub Actions complementa o fluxo de
+integração contínua ao validar os \textit{pull requests}. Esses recursos estão
+detalhados na Subseção 5.2.3 e compõem a infraestrutura planejada do projeto
+\cite{docker,aws-docs,github-actions}.
