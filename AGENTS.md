@@ -35,7 +35,8 @@ personally delivered in any particular project:
 - `conteudo/2 - ages I/`: Vítimas de Crime.
 - `conteudo/3 - ages II/`: Soul Amada.
 - `conteudo/4 - ages III/`: WeConecta.
-- `conteudo/5 - ages IV/`: fourth-course chapter, currently a template.
+- `conteudo/5 - ages IV/`: Seniors -- Empregabilidade. Its introduction and
+  development section are drafted; activities and conclusion still need content.
 - `conteudo/6 - consideracoes/consideracoes.tex`: overall closing reflection.
 - `conteudo/7 - pos/referencias.tex`: bibliography printing.
 - `conteudo/8 - apendices/apendices.tex`: appendices.
@@ -71,23 +72,38 @@ quote shell paths and preserve filenames.
   and follow nearby figure conventions (`[H]`, centered, usually full width).
 - Reuse acronym keys from `conteudo/0 - pre/0.8 - siglas.tex` via `\ac{...}`;
   define new keys there when needed. Use `\url{...}` for links and escape LaTeX
-  special characters in prose. Add real bibliography entries for sourced claims.
+  special characters in prose. The `xurl` package is loaded in `main.tex` to
+  permit breaks in long URLs. Add real bibliography entries for sourced claims.
 
 ## Current state and known gaps
 
-Snapshot from the initial review, 2026-09-13; recheck before acting. This is a
+Snapshot revised on 2026-09-17; recheck before acting. This is a
 navigation aid, not a request to fix everything automatically.
 
 - AGES I–III contain substantial prose, figures, sprint reports, and conclusions.
-  AGES IV, the abstract, and overall final considerations still contain template
-  instructions. The appendix contains a sample entry.
+  AGES IV now has its chapter opening, introduction, and development subsections
+  through technologies drafted; its activities and conclusion, the abstract, and
+  overall final considerations still contain template instructions. The appendix
+  contains a sample entry.
+- AGES IV covers Seniors -- Empregabilidade, a platform for employability and
+  professional relocation for people aged 50+. The confirmed project period is
+  03/08/2026--18/11/2026; stakeholders are Ana Lúcia Lopes, Cássia Schaurich
+  Siegle, and Júlia Flores; the academic advisor is Prof.ª Dra. Cristina Moreira
+  Nunes. Its cloud architecture is planned, not evidence of a delivered
+  deployment.
+- AGES IV prototype screens were created in Claude Design. The self-contained
+  source is `conteudo/5 - ages IV/figures/projeto-seniors.html`; generated screen
+  captures and grouped panels live alongside the chapter figures. Preserve these
+  assets unless the user requests a different presentation.
 - Cover metadata includes `\fim{YYYY}`, AGES II, and 2024; `\author{Gustavo}`
   differs from the displayed author Filipe Fuentes Giroleti. Confirm intended
   submission metadata before updating it.
 - AGES II's introduction gives dates in August–November 2023, overlapping AGES I.
   Confirm the actual dates rather than guessing a replacement year.
-- Bibliography entries are template examples. References and factual claims
-  still need a dedicated sourcing pass.
+- Official-documentation references for the core technologies cited in AGES I--IV
+  have been added. A dedicated sourcing pass remains necessary for nontechnical
+  factual claims; the original sample bibliography entries are still present but
+  uncited.
 - Hardcoded figure numbers and some captions need consistency review; the final
   WeConecta infrastructure figure is still captioned as initial infrastructure.
 
@@ -95,9 +111,9 @@ navigation aid, not a request to fix everything automatically.
 
 No Dockerfile, Compose file, build script, or CI configuration was found in the
 initial review. The author has a Docker-based setup on another laptop; do not
-assume its image or commands. At initial inspection, `latexmk`, `pdflatex`,
-`xelatex`, `lualatex`, `biber`, and `docker` were unavailable on PATH here.
-Check availability again in later environments.
+assume its image or commands. In this environment on 2026-09-17, `latexmk`,
+`pdflatex`, and `biber` are available, while `docker` is not. Check availability
+again in later environments.
 
 With a suitable TeX distribution including `abntex2`, Portuguese language
 support, the packages declared in `main.tex`/`util/style.tex`, and Biber, a
@@ -107,11 +123,16 @@ candidate build command from the repository root is:
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-This command has not been verified in this environment. Without latexmk, the
-expected sequence is pdfLaTeX, Biber (`biber main`), then pdfLaTeX twice.
-Docker is optional. If compilation is unavailable, perform relevant source
-checks and explicitly report that the PDF was not rebuilt or visually checked.
-Do not treat an existing PDF as proof that edits compile.
+This command was verified successfully in a complete temporary copy of the
+repository, including Biber. Running it from the repository root updates the
+tracked `main.pdf`. For non-mutating validation, compile a complete temporary
+copy instead: `\include` writes per-chapter auxiliary files beside its source,
+so using only a separate `-outdir` fails unless the matching include directories
+also exist there. Without latexmk, the expected sequence is pdfLaTeX, Biber
+(`biber main`), then pdfLaTeX twice. Docker is optional. If compilation is
+unavailable, perform relevant source checks and explicitly report that the PDF
+was not rebuilt or visually checked. Do not treat an existing PDF as proof that
+edits compile.
 
 For document changes, check affected include/image paths, references, citation
 and acronym keys, and LaTeX syntax. When compilation is available, inspect build
