@@ -91,10 +91,11 @@ navigation aid, not a request to fix everything automatically.
   Siegle, and Júlia Flores; the academic advisor is Prof.ª Dra. Cristina Moreira
   Nunes. Its cloud architecture is planned, not evidence of a delivered
   deployment.
-- AGES IV prototype screens were created in Claude Design. The self-contained
-  source is `conteudo/5 - ages IV/figures/projeto-seniors.html`; generated screen
-  captures and grouped panels live alongside the chapter figures. Preserve these
-  assets unless the user requests a different presentation.
+- AGES IV prototyping began in Figma; Claude Design was used for the final
+  prototype and screen references. The self-contained source is
+  `conteudo/5 - ages IV/figures/projeto-seniors.html`; generated screen captures
+  and grouped panels live alongside the chapter figures. Preserve these assets
+  unless the user requests a different presentation.
 - Cover metadata includes `\fim{YYYY}`, AGES II, and 2024; `\author{Gustavo}`
   differs from the displayed author Filipe Fuentes Giroleti. Confirm intended
   submission metadata before updating it.
