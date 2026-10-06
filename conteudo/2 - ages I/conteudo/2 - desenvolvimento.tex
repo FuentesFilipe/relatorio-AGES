@@ -6,10 +6,10 @@
   Inicialmente foram criados cinco repositórios para o projeto, sendo eles: “Wiki”, “App”, “Web”, “Auth” e “Api”. O repositório “Wiki” contava com a documentação do trabalho, contendo desde o fluxo de trabalho utilizado, arquitetura, \textit{desing/mockups} além de demais informações. “App” e “Web” contavam com o desenvolvimento do \textit{frontend} do projeto tanto para mobile quanto para web respectivamente. Já “Auth” e “Api” serviam para a lógica do \textit{backend} do projeto todo.
   
 Ao longo do semestre mais dois repositórios foram criados. “Infrastructure” era
-responsável pelo armazenamento de arquivos de configuração de CI/CD assim como
+responsável pelo armazenamento de arquivos de configuração de \ac{cicd} assim como
 12
-as configurações na nuvem. Por fim, “E2E Tests” foi criado como o repositório de
-testes de sistema do projeto utilizando \textit{Selenium}. Todos os repositórios podem ser
+as configurações na nuvem. Por fim, para os testes \ac{e2e} do sistema, foi criado
+o repositório “E2E Tests”, utilizando \textit{Selenium}. Todos os repositórios podem ser
 encontrados em: \url{https://tools.ages.pucrs.br/vitimas-de-crime}.
 
 \subsection{Banco de Dados Utilizado}
@@ -54,7 +54,7 @@ modelo idealizado.
     \label{fig:components-arch}
 \end{figure}
 
-Na parte do servidor, as APIs REST da aplicação e de autenticação conversam
+Na parte do servidor, as \acp{api} \ac{rest} da aplicação e de autenticação conversam
 com seus respectivos recursos como o próprio banco de dados e o serviço de
 autenticação. Os nossos clientes são os dispositivos mobile e web fazendo as
 requisições a esse mesmo servidor.
@@ -147,13 +147,13 @@ Figuras~\ref{fig:web-landing}, \ref{fig:web-procedures}, \ref{fig:web-invite} e
 \end{figure}
 
 \subsection{Tecnologias Utilizadas}
-  A implementação das APIs da aplicação e a gestão da autenticação no \textit{backend}
+  A implementação das \acp{api} da aplicação e a gestão da autenticação no \textit{backend}
 do projeto foram realizadas com a linguagem Kotlin, usando o framework Spring Boot,
 Gradle como gerenciador de dependências e Selenium para testes de sistema. A
 autenticação é gerenciada pela plataforma Keycloak, que implementa o protocolo
 OAuth 2 \cite{kotlin,spring-boot,gradle,selenium,keycloak,oauth2}.
 
-Além disso, foram utilizados recursos da AWS, incluindo S3 storage e EKS, e
+Além disso, foram utilizados recursos da \ac{aws}, incluindo \ac{s3} e \ac{eks}, e
 para facilitar a configuração em diferentes ambientes e melhorar a escalabilidade
 optamos pelo uso de containers Docker. Quanto ao \textit{frontend}, TypeScript foi escolhido
 como a linguagem de principal, juntamente com React Native e Expo para o
