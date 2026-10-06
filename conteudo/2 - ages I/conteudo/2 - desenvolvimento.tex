@@ -149,10 +149,11 @@ Figuras~\ref{fig:web-landing}, \ref{fig:web-procedures}, \ref{fig:web-invite} e
 
 \subsection{Tecnologias Utilizadas}
 As \acp{api} da aplicação e de autenticação foram implementadas em Kotlin com
-Spring Boot, usando Gradle para gerenciar as dependências. O Selenium foi
-utilizado nos testes de sistema. A autenticação foi gerenciada pelo Keycloak,
-que implementa o protocolo OAuth 2
-\cite{kotlin,spring-boot,gradle,selenium,keycloak,oauth2}.
+Spring Boot, usando Gradle para gerenciar as dependências
+\cite{kotlin,spring-boot,gradle}. Os testes de sistema foram mantidos no
+repositório “E2E Tests” e utilizaram Selenium \cite{selenium}. A autenticação
+foi gerenciada pelo Keycloak, que implementa o protocolo OAuth 2
+\cite{keycloak,oauth2}.
 
 Além disso, foram utilizados recursos da \ac{aws}, incluindo \ac{s3} e
 \ac{eks}. Para facilitar a configuração em diferentes ambientes e melhorar a
