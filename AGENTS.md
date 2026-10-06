@@ -96,6 +96,10 @@ navigation aid, not a request to fix everything automatically.
   `conteudo/5 - ages IV/figures/projeto-seniors.html`; generated screen captures
   and grouped panels live alongside the chapter figures. Preserve these assets
   unless the user requests a different presentation.
+- The AGES IV team used Notion for user stories and the task backlog, ClickUp as
+  a Kanban board, and Discord for group work and important information and links.
+  The intended workflow was to keep main communication in Discord and document
+  each person's work in ClickUp tasks; do not imply this always happened.
 - Cover metadata includes `\fim{YYYY}`, AGES II, and 2024; `\author{Gustavo}`
   differs from the displayed author Filipe Fuentes Giroleti. Confirm intended
   submission metadata before updating it.
