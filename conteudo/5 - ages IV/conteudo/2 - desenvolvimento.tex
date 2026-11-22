@@ -18,7 +18,7 @@ lógica de negócio e pela comunicação com os demais serviços da aplicação.
 disponível em:
 \url{https://tools.ages.pucrs.br/2026-2/2lm-4lm/seniors-empregabilidade/seniors-empregabilidade-backend}.
 
-\subsection{Banco de Dados Utilizado}
+\subsection{Banco de Dados Utilizado}\label{subsec:seniors-banco}
 Para a persistência dos dados da plataforma, foi definido o PostgreSQL como
 Sistema de Gerenciamento de Banco de Dados. A modelagem organiza as informações em
 quatro domínios: identidade dos usuários, perfis e currículos dos candidatos,
@@ -65,7 +65,7 @@ A documentação detalhada, incluindo o dicionário de dados e as decisões de
 modelagem, está disponível na \textit{Wiki} do projeto em:
 \url{https://tools.ages.pucrs.br/2026-2/2lm-4lm/seniors-empregabilidade/seniors-empregabilidade-wiki/-/wikis/Banco%20de%20Dados}.
 
-\subsection{Arquitetura Utilizada}
+\subsection{Arquitetura Utilizada}\label{subsec:seniors-arquitetura}
 A arquitetura definida para o projeto utiliza serviços da AWS, concentrados
 na região \textit{us-east-1} e em uma única VPC. O desenho prioriza serviços
 gerenciados, mantendo em instância dedicada apenas a API da aplicação. A interface
@@ -237,7 +237,7 @@ No \textit{backend}, a aplicação utiliza Python e FastAPI para a implementaç�
 API. O acesso ao banco de dados é realizado pelo SQLAlchemy, empregado como ORM,
 e o Alembic é responsável pelo controle das migrações do esquema de dados
 \cite{python,fastapi,sqlalchemy,alembic}. O PostgreSQL foi definido como sistema
-gerenciador de banco de dados, conforme apresentado na Subseção 5.2.2
+gerenciador de banco de dados, conforme apresentado na Subseção~\ref{subsec:seniors-banco}
 \cite{postgresql}.
 
 Para a disponibilização da solução, a infraestrutura implantada utiliza Docker
@@ -247,7 +247,7 @@ Cognito, Amazon EC2, Amazon ECR, AWS Secrets Manager, Amazon RDS, Amazon S3,
 Amazon CloudWatch e AWS CodeBuild. O GitHub Actions complementa o fluxo de
 integração contínua ao validar os \textit{pull requests}. O Amazon Route 53 fazia
 parte do planejamento original, mas não foi utilizado para um domínio próprio na
-entrega. Esses recursos estão detalhados na Subseção 5.2.3 e compõem a
+entrega. Esses recursos estão detalhados na Subseção~\ref{subsec:seniors-arquitetura} e compõem a
 infraestrutura do projeto \cite{docker,aws-docs,github-actions}.
 
 Para a organização do trabalho, a equipe utilizou o Notion para registrar as

@@ -1,7 +1,7 @@
 \section[Desenvolvimento do Projeto]{Desenvolvimento do Projeto}
-Ao longo desta seção, são apresentados os artefatos desenvolvidos ao longo do
-semestre no qual se situou o projeto. Também estão descritas as etapas realizadas
-para as entregas destes artefatos, bem como ilustrações e seus respectivos para a \textit{wiki} do projeto.
+Esta seção apresenta os artefatos desenvolvidos durante o semestre, as etapas
+realizadas para suas entregas, as ilustrações correspondentes e os respectivos
+links para a \textit{wiki} do projeto.
 
 \subsection{Repositório do Código Fonte do Projeto}
 O projeto foi estruturado em três repositórios distintos, cada um abrigando artefatos específicos. O repositório "Wiki"~incluía toda a documentação de arquitetura e requisitos, além de materiais para estudos dirigidos e os protótipos de telas.
@@ -20,9 +20,9 @@ Diante dos requisitos simples para a persistência dos dados, optou-se por utili
   \label{fig:db-concept}
 \end{figure}
 
-O intuito era de que o banco de dados fosse simples e contivesse apenas tabelas para os usuários e outra para as postagens. Os dados adicionais que não precisariam de tabelas (devocionais e vídeo aulas) iriam ser armazenados diretamente no código do \textit{frontend}.
+O intuito era manter o banco de dados simples, apenas com uma tabela para os usuários e outra para as postagens. Os dados adicionais que não precisariam de tabelas, como devocionais e videoaulas, seriam armazenados diretamente no código do \textit{frontend}.
 
-No entanto, notou-se que estes dados ou poderiam ser alterados com frequência ou eram muito extensos, o que poderia causar dores de cabeça futuras. Por isso, froam criadas tabelas para estes dados também.
+No entanto, notou-se que esses dados poderiam ser alterados com frequência ou eram muito extensos, o que poderia causar dificuldades futuras. Por isso, também foram criadas tabelas para armazená-los.
 
 Em um processo iterativo com nossos AGES IV e AGES III, o modelo do banco passou por alterações e atualizações à medida que as primeiras \textit{sprints} foram ocorrendo. Os diagramas finais, tanto o conceitual quanto o lógico, estão ilustrados nas
 Figuras~\ref{fig:db-concept2} e~\ref{fig:db-logic}, respectivamente.
@@ -45,12 +45,12 @@ Figuras~\ref{fig:db-concept2} e~\ref{fig:db-logic}, respectivamente.
   \label{fig:db-logic}
 \end{figure}
 
-Além das tabelas de usuários e postagens, foram criadas tabelas para os devocionais, vídeo aulas, comentários e eventos. A tabela de eventos foi criada para armazenar eventos que seriam exibidos no aplicativo, como encontros e palestras. Já a tabela de comentários teve o propósito de armazenar os comentários feitos pelos usuários nas vídeo aulas.
+Além das tabelas de usuários e postagens, foram criadas tabelas para devocionais, videoaulas, comentários e eventos. A tabela de eventos armazenava itens que seriam exibidos no aplicativo, como encontros e palestras. Já a tabela de comentários armazenava as manifestações dos usuários nas videoaulas.
 
 \subsection{Arquitetura Utilizada}
 A estrutura arquitetural do projeto é baseada no design de interação entre componentes distintos. Uma parte do sistema atua como requisitante de serviços ou recursos (o \textit{frontend}, ou cliente), enquanto outra é responsável por processar essas solicitações e fornecer as respostas correspondentes (a API, ou servidor).
 
-A API do projeto Soul Amada é executada em um container Docker hospedado em uma instância \ac{ec2} dentro de uma \ac{vpc} privada, com comunicação direta com o banco de dados da aplicação. O \textit{backend} utiliza o Supabase, uma solução escalável e autogerenciada, para armazenar os dados de forma eficiente.
+A API do projeto Soul Amada é executada em um contêiner Docker hospedado em uma instância \ac{ec2} dentro de uma \ac{vpc} privada, com comunicação direta com o banco de dados da aplicação. O \textit{backend} utiliza o Supabase, uma solução escalável e autogerenciada, para armazenar os dados de forma eficiente.
 
 Para o armazenamento de arquivos, um bucket do S3 foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. Essa arquitetura de \textit{cloud} é apresentada na
 Figura~\ref{fig:infra-api}.
@@ -64,9 +64,9 @@ Figura~\ref{fig:infra-api}.
   \label{fig:infra-api}
 \end{figure}
 
-Referente aos \textit{deploys}, o da API ocorre automaticamente após um commit na branch "main" do repositório \textit{backend}. Um \textit{runner} do GitLab é acionado na própria instância EC2, responsável por executar os testes e aplicar as migrações do \textit{Prisma} \ac{orm} no banco de dados do Supabase. Em seguida, o \textit{runner} realiza o build da imagem atualizada da API, finalizando qualquer container em execução previamente e iniciando um novo container com a imagem recém-criada, garantindo a atualização do serviço de forma contínua e eficiente.
+O \textit{deploy} da API ocorre automaticamente após um \textit{commit} na \textit{branch} “main” do repositório \textit{backend}. Um \textit{runner} do GitLab é acionado na própria instância EC2, responsável por executar os testes e aplicar as migrações do \textit{Prisma} \ac{orm} no banco de dados do Supabase. Em seguida, o \textit{runner} realiza o \textit{build} da imagem atualizada da API, finaliza o contêiner que estava em execução e inicia outro com a imagem recém-criada.
 
-O \textit{deploy} do front end também utiliza este mesmo \textit{runner} na EC2 para realizar  a criação da \ac{apk} e da \ac{ipa}. Este \textit{runner} enviará estes arquivos para uma pasta de releases no S3, onde o download das versões será disponibilizado. As Figuras~\ref{fig:infra-api-deploy} e~\ref{fig:infra-front-deploy}
+O \textit{deploy} do \textit{frontend} também utiliza esse \textit{runner} na EC2 para criar a \ac{apk} e a \ac{ipa}. O \textit{runner} envia esses arquivos para uma pasta de versões no S3, onde ficam disponíveis para download. As Figuras~\ref{fig:infra-api-deploy} e~\ref{fig:infra-front-deploy}
 ilustram o fluxo de \textit{deploy} do \textit{backend} e do
 \textit{frontend}, respectivamente.
 
@@ -94,7 +94,7 @@ ilustram o fluxo de \textit{deploy} do \textit{backend} e do
 
 
 \subsection{Protótipos das Telas Desenvolvidas}
-Já na sprint 0 a squad do \textit{frontend} desenvolveu o protótipo das telas, tendo em vista que a cliente já havia fornecido um \textit{design} inicial desejado. 
+Já na Sprint 0, a squad do \textit{frontend} desenvolveu o protótipo das telas, tendo em vista que a cliente já havia fornecido um \textit{design} inicial desejado.
 O trabalho realizado pela squad é apresentado nas
 Figuras~\ref{fig:telas-1} a~\ref{fig:telas-6}.
 
@@ -154,6 +154,6 @@ Figuras~\ref{fig:telas-1} a~\ref{fig:telas-6}.
 
 \subsection{Tecnologias Utilizadas}
 
-De uma maneira geral a tecnologia mais utilizada foi a linguagem TypeScript, tanto no \textit{frontend} quanto no \textit{backend} e diferenciando-se apenas nos \textit{frameworks} utilizados. No \textit{frontend} foi utilizado o React Native, enquanto no \textit{backend} foi utilizado o NestJS. Além disso, o \ac{sgbd} utilizado foi o Supabase, que é um banco de dados PostgreSQL com uma camada de abstração para facilitar o uso. A camada de persistência da API foi implementada com o Prisma ORM, incluindo a execução de migrações do esquema de dados \cite{typescript,react-native,nestjs,supabase,postgresql,prisma}.
+De maneira geral, a principal tecnologia utilizada foi a linguagem TypeScript, adotada tanto no \textit{frontend} quanto no \textit{backend}, com diferentes \textit{frameworks} em cada camada. No \textit{frontend} foi utilizado o React Native, enquanto no \textit{backend} foi utilizado o NestJS. Além disso, o \ac{sgbd} utilizado foi o Supabase, que é um banco de dados PostgreSQL com uma camada de abstração para facilitar o uso. A camada de persistência da API foi implementada com o Prisma ORM, incluindo a execução de migrações do esquema de dados \cite{typescript,react-native,nestjs,supabase,postgresql,prisma}.
 
 Recursos da AWS também foram utilizados, como o EC2, S3 e API Gateway. O EC2 foi utilizado para hospedar a API, o S3 para armazenar arquivos e o API Gateway para redirecionar chamadas para a instância EC2. O Docker e o GitLab CI também integraram o fluxo de disponibilização da aplicação \cite{aws-docs,docker,gitlab-ci}.

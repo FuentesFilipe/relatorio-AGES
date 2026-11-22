@@ -83,13 +83,12 @@ quote shell paths and preserve filenames.
 
 ## Current state and known gaps
 
-Snapshot revised on 2026-09-17; recheck before acting. This is a
+Snapshot revised on 2026-11-22; recheck before acting. This is a
 navigation aid, not a request to fix everything automatically.
 
-- AGES I–III contain substantial prose, figures, sprint reports, and conclusions.
-  AGES IV now has its chapter opening, introduction, development subsections, and
-  Sprint 0--4 activities drafted; its conclusion and the overall final
-  considerations still contain template instructions. The appendix contains a
+- All four AGES chapters now contain their introductions, development sections,
+  Sprint 0--4 activities, and conclusions. The overall final considerations are
+  also drafted. The appendix remains excluded from `main.tex` and contains a
   sample entry.
 - AGES IV covers Seniors -- Empregabilidade, a platform for employability and
   professional relocation for people aged 50+. The confirmed project period is
@@ -133,18 +132,19 @@ navigation aid, not a request to fix everything automatically.
   subtasks, which remained confusing throughout the project. Partial mitigations
   were a saved view showing both stories and subtasks as cards and assigning
   squads to their user stories so members could filter the board.
-- Cover metadata includes `\fim{YYYY}`, AGES II, and 2024; `\author{Gustavo}`
-  differs from the displayed author Filipe Fuentes Giroleti. Confirm intended
-  submission metadata before updating it.
-- AGES II's introduction gives dates in August–November 2023, overlapping AGES I.
-  Confirm the actual dates rather than guessing a replacement year.
+- The cover period ends in 2026 and identifies AGES IV, while the displayed
+  submission year remains 2024. The author metadata is Filipe Fuentes Giroleti.
+  Confirm whether the display year should remain 2024 or be updated to 2026.
+- The confirmed AGES II project period is 05/08/2024--16/12/2024.
 - Official-documentation references for the technologies and tools cited in
   AGES I--IV have been added. The original sample bibliography entries were
   replaced by the four project pages, which are fixed as references 1--4. By the
   author's choice, nontechnical contextual claims are outside the bibliography's
   scope.
-- Hardcoded figure numbers and some captions need consistency review; the final
-  WeConecta infrastructure figure is still captioned as initial infrastructure.
+- A final source and layout review on 2026-11-22 found no unresolved labels,
+  citations, acronym keys, image paths, or overfull boxes. A duplicated WeConecta
+  screen figure with an incorrect caption was removed; all remaining figures have
+  captions and source credits.
 
 ## Build and verification
 
@@ -200,9 +200,15 @@ and no overfull box warning was attributed to the new chapter. The tracked
 `main.pdf` was intentionally not regenerated. No PDF renderer was available for
 a visual page inspection.
 
-The next substantive step is an authorial review of the final considerations,
-especially whether its level of detail and its assessment of AGES match the
-author's intended voice. After that, review the report as a whole for narrative
-consistency and address the still-open metadata/date issues and figure-caption
-consistency items documented above. Do not invent a Projeto Destaque outcome;
-voting had not occurred when the report was drafted.
+A final whole-document review was performed on 2026-11-22. It corrected clear
+language errors, removed a draft reminder, replaced hardcoded subsection numbers,
+added the missing Swagger technology reference, removed a duplicated WeConecta
+figure, and fixed reflection-box and bibliography overflow. A clean temporary
+build produced a 95-page PDF with no unresolved references, citations, acronym
+keys, image paths, or overfull boxes. The tracked `main.pdf` was not regenerated.
+
+Before delivery, the author still needs to confirm whether the cover display year
+should remain 2024 or be updated to 2026. The author metadata and AGES II dates
+have been corrected. Do not
+invent a Projeto Destaque outcome; voting had not occurred when the report was
+drafted.
