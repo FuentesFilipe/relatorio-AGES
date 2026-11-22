@@ -181,26 +181,22 @@ or establishes a working build workflow. Keep transient logs out of this file.
 
 ## Next-session handoff
 
-The AGES IV chapter now has drafted introduction, development, Sprint 0--4
-activities, and a condensed conclusion of roughly 634 words. The next substantive
-step is to review the narratives and conclusions of all four AGES chapters as one
-trajectory, then draft `conteudo/6 - consideracoes/consideracoes.tex`.
+The AGES IV chapter has drafted introduction, development, Sprint 0--4
+activities, and conclusion. `conteudo/6 - consideracoes/consideracoes.tex` now
+contains a roughly 1,190-word synthesis of the four-course trajectory, covering
+technical and interpersonal development, lessons from successes and failures,
+the author's changed view of Software Engineering, and balanced praise,
+criticism, and suggestions regarding AGES.
 
-For that draft:
+The considerations draft was compiled successfully with `latexmk` in a complete
+temporary copy on 2026-11-22. It spans four pages in the resulting 94-page PDF,
+and no overfull box warning was attributed to the new chapter. The tracked
+`main.pdf` was intentionally not regenerated. No PDF renderer was available for
+a visual page inspection.
 
-- Synthesize progression from implementation in AGES I, through data modeling in
-  AGES II and technical leadership/architecture in AGES III, to project management
-  in AGES IV.
-- Address the course-level prompts already present in the file: professional
-  evolution, hard and soft skills, lessons from successes and failures, how the
-  author's view of Software Engineering changed, and criticism/praise/suggestions
-  regarding AGES.
-- Avoid merely repeating the four project conclusions. Focus on changes across
-  time, recurring themes (especially communication, asking for help, technical and
-  managerial leadership, team organization, and balancing firmness with empathy),
-  and evidence from the sprint narratives.
-- Preserve the author's candid first-person voice and do not invent a final Projeto
-  Destaque result; voting had not occurred when the report was drafted.
-- Before writing, re-read the presentation chapter, all four AGES conclusions, and
-  the most relevant sprint reflections. Ask for any missing personal reflection
-  that cannot be supported by those sources.
+The next substantive step is an authorial review of the final considerations,
+especially whether its level of detail and its assessment of AGES match the
+author's intended voice. After that, review the report as a whole for narrative
+consistency and address the still-open metadata/date issues and figure-caption
+consistency items documented above. Do not invent a Projeto Destaque outcome;
+voting had not occurred when the report was drafted.
