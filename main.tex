@@ -41,12 +41,16 @@
 \usepackage[printonlyused]{acronym}
 
 % Se o style=abnt não funcionar, utilize o style=numeric
-\usepackage[style=numeric]{biblatex}
+\usepackage[style=numeric,sorting=none]{biblatex}
 \usepackage{csquotes}
 \addbibresource{bibliografia/bibliografia.bib}
 
 % Ajuste de ordenação dos arquivos:
 \begin{document}
+  % Mantém os quatro projetos como as primeiras referências, na ordem das
+  % disciplinas AGES I a IV. Cada projeto é citado em sua introdução.
+  \nocite{projeto-vitimas-de-crime,projeto-soul-amada,projeto-weconecta,projeto-seniors}
+
   \include{conteudo/0 - pre/0.1 - capa}
   % Opcional:
   \include{conteudo/0 - pre/0.2 - dedicatoria}

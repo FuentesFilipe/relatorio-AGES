@@ -74,7 +74,12 @@ quote shell paths and preserve filenames.
 - Reuse acronym keys from `conteudo/0 - pre/0.8 - siglas.tex` via `\ac{...}`;
   define new keys there when needed. Use `\url{...}` for links and escape LaTeX
   special characters in prose. The `xurl` package is loaded in `main.tex` to
-  permit breaks in long URLs. Add real bibliography entries for sourced claims.
+  permit breaks in long URLs.
+- The bibliography is intentionally limited to the four AGES project pages and
+  official references for technologies and tools used in the projects. The four
+  project entries must remain references 1--4, in AGES I--IV order. Do not add
+  thematic or contextual sources (for example, health or employability reports)
+  unless the author explicitly changes this scope.
 
 ## Current state and known gaps
 
@@ -133,10 +138,11 @@ navigation aid, not a request to fix everything automatically.
   submission metadata before updating it.
 - AGES II's introduction gives dates in August–November 2023, overlapping AGES I.
   Confirm the actual dates rather than guessing a replacement year.
-- Official-documentation references for the core technologies cited in AGES I--IV
-  have been added. A dedicated sourcing pass remains necessary for nontechnical
-  factual claims; the original sample bibliography entries are still present but
-  uncited.
+- Official-documentation references for the technologies and tools cited in
+  AGES I--IV have been added. The original sample bibliography entries were
+  replaced by the four project pages, which are fixed as references 1--4. By the
+  author's choice, nontechnical contextual claims are outside the bibliography's
+  scope.
 - Hardcoded figure numbers and some captions need consistency review; the final
   WeConecta infrastructure figure is still captioned as initial infrastructure.
 

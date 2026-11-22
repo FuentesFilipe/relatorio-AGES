@@ -9,7 +9,7 @@ O projeto foi estruturado em três repositórios distintos, cada um abrigando ar
 Além da \textit{wiki}, foram criados os repositórios "soul-amada-backend"~e "soul-amada-frontend"~para guardar o código do projeto. Todos estes podem ser encontrados no link: \url{https://tools.ages.pucrs.br/soul-amada}.
 
 \subsection{Banco de Dados Utilizado}
-Diante dos requisitos simples para a persistência dos dados, optou-se por utilizar um banco relacional. A ideia inicial era tão simples que, em um primeiro momento, foram conceitualizadas apenas duas tabelas, conforme a figura 13.
+Diante dos requisitos simples para a persistência dos dados, optou-se por utilizar um banco relacional. A ideia inicial era tão simples que, em um primeiro momento, foram conceitualizadas apenas duas tabelas, conforme a Figura~\ref{fig:db-concept}.
 
 \begin{figure}[H]
   \centering
@@ -24,7 +24,8 @@ O intuito era de que o banco de dados fosse simples e contivesse apenas tabelas 
 
 No entanto, notou-se que estes dados ou poderiam ser alterados com frequência ou eram muito extensos, o que poderia causar dores de cabeça futuras. Por isso, froam criadas tabelas para estes dados também.
 
-Em um processo iterativo com nossos AGES IV e AGES III, o modelo do banco passou por alterações e atualizações à medida que as primeiras \textit{sprints} foram ocorrendo. Os diagramas finais, tanto o conceitual quanto o lógico, estão ilustrados nas figuras 14 e 15, respectivamente.
+Em um processo iterativo com nossos AGES IV e AGES III, o modelo do banco passou por alterações e atualizações à medida que as primeiras \textit{sprints} foram ocorrendo. Os diagramas finais, tanto o conceitual quanto o lógico, estão ilustrados nas
+Figuras~\ref{fig:db-concept2} e~\ref{fig:db-logic}, respectivamente.
 
 \begin{figure}[H]
   \centering
@@ -51,7 +52,8 @@ A estrutura arquitetural do projeto é baseada no design de interação entre co
 
 A API do projeto Soul Amada é executada em um container Docker hospedado em uma instância \ac{ec2} dentro de uma \ac{vpc} privada, com comunicação direta com o banco de dados da aplicação. O \textit{backend} utiliza o Supabase, uma solução escalável e autogerenciada, para armazenar os dados de forma eficiente.
 
-Para o armazenamento de arquivos, um bucket do S3 foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. É ilustrada esta arquitetura de \textit{cloud} na figura 17.
+Para o armazenamento de arquivos, um bucket do S3 foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. Essa arquitetura de \textit{cloud} é apresentada na
+Figura~\ref{fig:infra-api}.
 
 \begin{figure}[H]
   \centering
@@ -64,7 +66,9 @@ Para o armazenamento de arquivos, um bucket do S3 foi integrado, simplificando o
 
 Referente aos \textit{deploys}, o da API ocorre automaticamente após um commit na branch "main" do repositório \textit{backend}. Um \textit{runner} do GitLab é acionado na própria instância EC2, responsável por executar os testes e aplicar as migrações do \textit{Prisma} \ac{orm} no banco de dados do Supabase. Em seguida, o \textit{runner} realiza o build da imagem atualizada da API, finalizando qualquer container em execução previamente e iniciando um novo container com a imagem recém-criada, garantindo a atualização do serviço de forma contínua e eficiente.
 
-O \textit{deploy} do front end também utiliza este mesmo \textit{runner} na EC2 para realizar  a criação da \ac{apk} e da \ac{ipa}. Este \textit{runner} enviará estes arquivos para uma pasta de releases no S3, onde o download das versões será disponibilizado. As figuras 18 e 19 ilustram o fluxo de \textit{deploy} do \textit{backend} e do \textit{frontend}, respectivamente.
+O \textit{deploy} do front end também utiliza este mesmo \textit{runner} na EC2 para realizar  a criação da \ac{apk} e da \ac{ipa}. Este \textit{runner} enviará estes arquivos para uma pasta de releases no S3, onde o download das versões será disponibilizado. As Figuras~\ref{fig:infra-api-deploy} e~\ref{fig:infra-front-deploy}
+ilustram o fluxo de \textit{deploy} do \textit{backend} e do
+\textit{frontend}, respectivamente.
 
 
 \begin{figure}[H]
@@ -91,7 +95,8 @@ O \textit{deploy} do front end também utiliza este mesmo \textit{runner} na EC2
 
 \subsection{Protótipos das Telas Desenvolvidas}
 Já na sprint 0 a squad do \textit{frontend} desenvolveu o protótipo das telas, tendo em vista que a cliente já havia fornecido um \textit{design} inicial desejado. 
-Segue ilustrado o trabalho feito pela squad nas imagens 20 a 26.
+O trabalho realizado pela squad é apresentado nas
+Figuras~\ref{fig:telas-1} a~\ref{fig:telas-6}.
 
 \begin{figure}[H]
   \centering
