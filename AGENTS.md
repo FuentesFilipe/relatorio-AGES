@@ -219,6 +219,20 @@ figure, and fixed reflection-box and bibliography overflow. A clean temporary
 build produced a 95-page PDF with no unresolved references, citations, acronym
 keys, image paths, or overfull boxes. The tracked `main.pdf` was not regenerated.
 
+The final considerations now include a 1--100 radar chart comparing the author's
+cumulative self-assessment after AGES I--IV across communication, teamwork,
+leadership/support, management/organization, architecture/infrastructure,
+data/persistence, and software development. The active asset is the author's
+Excel-rendered `conteudo/6 - consideracoes/figures/radar.png`; its authoritative
+scores are also provided in `dados-radar-evolucao.csv`, arranged for direct
+import into Google Sheets or Excel. The earlier Gnuplot source and vector PDF
+remain beside it as reproducible fallback assets but are no longer included in
+the memorial. The chart is introduced explicitly as subjective self-assessment
+rather than objective performance measurement. The Excel-rendered version was
+compiled into the tracked 96-page `main.pdf` with no unresolved references,
+citations, or overfull boxes, and its page 91 was visually inspected for figure
+placement and legibility.
+
 The cover display year is now 2026, the author metadata has been corrected, and
 the confirmed AGES II period is 05/08/2024--16/12/2024. The author regenerated
 the tracked `main.pdf` after those metadata changes; preserve it unless a task
