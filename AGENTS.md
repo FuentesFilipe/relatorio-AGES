@@ -35,8 +35,9 @@ personally delivered in any particular project:
 - `conteudo/2 - ages I/`: Vítimas de Crime.
 - `conteudo/3 - ages II/`: Soul Amada.
 - `conteudo/4 - ages III/`: WeConecta.
-- `conteudo/5 - ages IV/`: Seniors -- Empregabilidade. Its introduction and
-  development section are drafted; activities and conclusion still need content.
+- `conteudo/5 - ages IV/`: Seniors -- Empregabilidade. Its introduction,
+  development section, and sprint activities are drafted; its conclusion still
+  needs content.
 - `conteudo/6 - consideracoes/consideracoes.tex`: overall closing reflection.
 - `conteudo/7 - pos/referencias.tex`: bibliography printing.
 - `conteudo/8 - apendices/apendices.tex`: appendices.
@@ -81,16 +82,39 @@ Snapshot revised on 2026-09-17; recheck before acting. This is a
 navigation aid, not a request to fix everything automatically.
 
 - AGES I–III contain substantial prose, figures, sprint reports, and conclusions.
-  AGES IV now has its chapter opening, introduction, and development subsections
-  through technologies drafted; its activities and conclusion, the abstract, and
-  overall final considerations still contain template instructions. The appendix
-  contains a sample entry.
+  AGES IV now has its chapter opening, introduction, development subsections, and
+  Sprint 0--4 activities drafted; its conclusion and the overall final
+  considerations still contain template instructions. The appendix contains a
+  sample entry.
 - AGES IV covers Seniors -- Empregabilidade, a platform for employability and
   professional relocation for people aged 50+. The confirmed project period is
   03/08/2026--18/11/2026; stakeholders are Ana Lúcia Lopes, Cássia Schaurich
   Siegle, and Júlia Flores; the academic advisor is Prof.ª Dra. Cristina Moreira
-  Nunes. Its cloud architecture is planned, not evidence of a delivered
-  deployment.
+  Nunes. The cloud infrastructure was deployed near the beginning of Sprint 2 and
+  remained stable for the semester except for one EC2 out-of-memory incident
+  caused by retained backend build images. Leonardo Dondoni, AGES III, was
+  principally responsible for this successful infrastructure work.
+- The final Seniors MVP implemented and deployed the frontend, backend, database,
+  and all features in the final agreed scope. Curriculum upload was deliberately dropped in agreement
+  with the stakeholders. The project did not purchase a custom domain and used
+  Cognito's default email templates because of budget and implementation cost.
+  The author regards the result as an excellent version 0.1 that met the MVP
+  objective and left the stakeholders highly satisfied.
+- For the AGES IV conclusion, preserve the author's assessment that his strongest
+  contribution was communication and maintaining a light, connected team climate;
+  his main management error was failing to structure the backlog, epics, user
+  stories, and ClickUp board from Sprint 0. The squads remained largely stable,
+  but in his assessment the AGES III students generally acted more as individual
+  developers than as the expected technical leaders, leaving onboarding, study
+  guidance, and early PR review insufficient. Do not generalize this criticism
+  beyond his account, and retain the specific credit to Leonardo for infrastructure.
+- The author does not consider Seniors his best AGES experience despite the
+  complete and well-received product. He perceived reduced engagement and peer
+  collaboration, possibly influenced by AI-assisted work, but valued the relaxed
+  atmosphere, humor, his preferred advisor's presence, and the management lesson
+  that trying to please everyone can delay necessary decisions. Projeto Destaque
+  voting had not happened at the time of the report and should not be given an
+  outcome.
 - AGES IV prototyping began in Figma; Claude Design was used for the final
   prototype and screen references. The self-contained source is
   `conteudo/5 - ages IV/figures/projeto-seniors.html`; generated screen captures
@@ -99,7 +123,11 @@ navigation aid, not a request to fix everything automatically.
 - The AGES IV team used Notion for user stories and the task backlog, ClickUp as
   a Kanban board, and Discord for group work and important information and links.
   The intended workflow was to keep main communication in Discord and document
-  each person's work in ClickUp tasks; do not imply this always happened.
+  each person's work in ClickUp tasks; do not imply this always happened. The
+  ClickUp board placed user stories as cards and implementation tasks as nested
+  subtasks, which remained confusing throughout the project. Partial mitigations
+  were a saved view showing both stories and subtasks as cards and assigning
+  squads to their user stories so members could filter the board.
 - Cover metadata includes `\fim{YYYY}`, AGES II, and 2024; `\author{Gustavo}`
   differs from the displayed author Filipe Fuentes Giroleti. Confirm intended
   submission metadata before updating it.

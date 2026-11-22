@@ -66,38 +66,47 @@ modelagem, está disponível na \textit{Wiki} do projeto em:
 \url{https://tools.ages.pucrs.br/2026-2/2lm-4lm/seniors-empregabilidade/seniors-empregabilidade-wiki/-/wikis/Banco%20de%20Dados}.
 
 \subsection{Arquitetura Utilizada}
-A arquitetura planejada para o projeto utiliza serviços da \ac{aws}, concentrados
-na região \textit{us-east-1} e em uma única \ac{vpc}. A proposta prioriza serviços
-gerenciados, mantendo em instância dedicada apenas a API da aplicação. Dessa forma,
-a interface Web será hospedada no AWS Amplify e disponibilizada por meio do Amazon
-Route 53, enquanto a autenticação dos usuários será centralizada no Amazon Cognito.
-Essa estrutura é apresentada na Figura~\ref{fig:infra-seniors}.
+A arquitetura definida para o projeto utiliza serviços da \ac{aws}, concentrados
+na região \textit{us-east-1} e em uma única \ac{vpc}. O desenho prioriza serviços
+gerenciados, mantendo em instância dedicada apenas a API da aplicação. A interface
+Web foi hospedada no AWS Amplify, e a autenticação dos usuários foi centralizada no
+Amazon Cognito. O planejamento original também previa a disponibilização por meio
+do Amazon Route 53, mas o projeto foi entregue sem a aquisição de um domínio
+próprio. A estrutura é apresentada na Figura~\ref{fig:infra-seniors}.
 
 \begin{figure}[H]
   \centering
   \small
-  \caption{Diagrama da infraestrutura planejada do projeto Seniors -- Empregabilidade}
+  \caption{Diagrama da infraestrutura do projeto Seniors -- Empregabilidade}
   \includegraphics[width=1\linewidth]{conteudo/5 - ages IV/figures/Diagrama_de_Deploy_v2___Infraestrutura_AWS__pós-devolutiva_.png}
   Fonte: \textit{Wiki} do projeto
   \label{fig:infra-seniors}
 \end{figure}
 
-O \textit{backend} foi projetado para executar uma API FastAPI em um contêiner
-Docker hospedado em uma instância \ac{ec2}, posicionada em uma sub-rede pública. A
-API deverá validar os tokens emitidos pelo Cognito, comunicar-se com o banco
-PostgreSQL hospedado no Amazon RDS, em sub-rede privada, e utilizar o Amazon S3
-para o armazenamento de arquivos enviados pelos usuários, como currículos e
-documentos. A separação entre as sub-redes e os grupos de segurança previstos
-restringem o acesso ao banco de dados à própria API.
+O \textit{backend} executa uma API FastAPI em um contêiner Docker hospedado em uma
+instância \ac{ec2}, posicionada em uma sub-rede pública. A API valida os tokens
+emitidos pelo Cognito, comunica-se com o banco PostgreSQL hospedado no Amazon RDS,
+em sub-rede privada, e utiliza o Amazon S3 para o armazenamento de arquivos da
+aplicação. A separação entre as sub-redes e os grupos de segurança restringe o
+acesso ao banco de dados à própria API. O envio de arquivos de currículo não foi
+implementado, pois essa funcionalidade foi retirada do escopo em acordo com as
+\textit{stakeholders}.
 
-Também foi definido um fluxo de \ac{cicd} separado para os dois repositórios de
-código. Os \textit{pull requests} serão validados pelo GitHub Actions. Após a
-integração na \textit{branch} de produção, o AWS CodeBuild deverá construir a
-imagem Docker da API, publicá-la no Amazon ECR e solicitar a atualização da
-instância EC2. Em paralelo, o AWS Amplify realizará o \textit{build} e a
-publicação do \textit{frontend}.
+O fluxo de \ac{cicd} foi separado para os dois repositórios de código. Os
+\textit{pull requests} são validados pelo GitHub Actions. Após a integração na
+\textit{branch} de produção, o AWS CodeBuild constrói a imagem Docker da API,
+publica-a no Amazon ECR e solicita a atualização da instância EC2. Em paralelo, o
+AWS Amplify realiza o \textit{build} e a publicação do \textit{frontend}.
 
-A documentação detalhada da infraestrutura planejada, incluindo o diagrama de
+A infraestrutura foi implantada no início da Sprint 2, sob responsabilidade
+principal do colega AGES III Leonardo Dondoni, e permaneceu estável durante o
+restante do semestre. A única indisponibilidade relevante ocorreu quando a
+instância EC2 esgotou sua memória devido ao acúmulo de imagens geradas pelos
+\textit{builds} do \textit{backend}. Para as comunicações de autenticação, foram
+mantidos os modelos de e-mail padrão do Cognito, uma decisão compatível com o
+orçamento e o tempo disponíveis para o MVP.
+
+A documentação detalhada da infraestrutura implantada, incluindo o diagrama de
 arquitetura, está disponível na \textit{Wiki} do projeto em:
 \url{https://tools.ages.pucrs.br/2026-2/2lm-4lm/seniors-empregabilidade/seniors-empregabilidade-wiki/-/wikis/Infraestrutura}.
 
@@ -231,14 +240,15 @@ e o Alembic é responsável pelo controle das migrações do esquema de dados
 gerenciador de banco de dados, conforme apresentado na Subseção 5.2.2
 \cite{postgresql}.
 
-Para a disponibilização da solução, a arquitetura planejada utiliza Docker para
-empacotar a API e serviços da AWS para hospedagem, autenticação, dados,
-armazenamento e automação. Entre eles estão AWS Amplify, Amazon Route 53, Amazon
+Para a disponibilização da solução, a infraestrutura implantada utiliza Docker
+para empacotar a API e serviços da AWS para hospedagem, autenticação, dados,
+armazenamento e automação. Entre os serviços empregados estão AWS Amplify, Amazon
 Cognito, Amazon EC2, Amazon ECR, AWS Secrets Manager, Amazon RDS, Amazon S3,
 Amazon CloudWatch e AWS CodeBuild. O GitHub Actions complementa o fluxo de
-integração contínua ao validar os \textit{pull requests}. Esses recursos estão
-detalhados na Subseção 5.2.3 e compõem a infraestrutura planejada do projeto
-\cite{docker,aws-docs,github-actions}.
+integração contínua ao validar os \textit{pull requests}. O Amazon Route 53 fazia
+parte do planejamento original, mas não foi utilizado para um domínio próprio na
+entrega. Esses recursos estão detalhados na Subseção 5.2.3 e compõem a
+infraestrutura do projeto \cite{docker,aws-docs,github-actions}.
 
 Para a organização do trabalho, a equipe utilizou o Notion para registrar as
 histórias de usuário e o backlog de tarefas \cite{notion-projects-tasks}, o
