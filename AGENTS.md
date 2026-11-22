@@ -90,6 +90,18 @@ navigation aid, not a request to fix everything automatically.
   Sprint 0--4 activities, and conclusions. The overall final considerations are
   also drafted. The appendix remains excluded from `main.tex` and contains a
   sample entry.
+- The presentation chapter has been updated beyond its original 2023 endpoint.
+  The author worked at PORTOSYS from January 2023 through June 2024, where he had
+  his first contact with production SQL and learned team-based development. He
+  worked concurrently at PureAI/inDocs from January 2024 through June 2025 as a
+  backend developer, entering with no prior backend/infrastructure maintenance
+  knowledge and learning FastAPI, Docker, and AWS in a fast-paced startup; he
+  regards this experience as the foundation of the professional he is today. In
+  2025, Grupo Ável invited him to join its investment-advisory platform team. His
+  scope there included backend development, data engineering, CI/CD, Terraform,
+  and cloud infrastructure/network planning. He was laid off in August 2026 due
+  to cost cutting, at the start of his final semester. Do not invent promotions,
+  specific products, or responsibilities beyond these confirmed facts.
 - AGES IV covers Seniors -- Empregabilidade, a platform for employability and
   professional relocation for people aged 50+. The confirmed project period is
   03/08/2026--18/11/2026; stakeholders are Ana Lúcia Lopes, Cássia Schaurich
@@ -207,8 +219,8 @@ figure, and fixed reflection-box and bibliography overflow. A clean temporary
 build produced a 95-page PDF with no unresolved references, citations, acronym
 keys, image paths, or overfull boxes. The tracked `main.pdf` was not regenerated.
 
-Before delivery, the author still needs to confirm whether the cover display year
-should remain 2024 or be updated to 2026. The author metadata and AGES II dates
-have been corrected. Do not
-invent a Projeto Destaque outcome; voting had not occurred when the report was
-drafted.
+The cover display year is now 2026, the author metadata has been corrected, and
+the confirmed AGES II period is 05/08/2024--16/12/2024. The author regenerated
+the tracked `main.pdf` after those metadata changes; preserve it unless a task
+calls for another rebuild. Do not invent a Projeto Destaque outcome; voting had
+not occurred when the report was drafted.
