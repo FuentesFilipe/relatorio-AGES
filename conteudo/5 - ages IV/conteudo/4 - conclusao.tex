@@ -1,14 +1,110 @@
 \section[Conclusão]{Conclusão}
 
-Neste item o aluno deverá refletir sobre:
-\begin{itemize}
-    \item Crítica e autocrítica em relação a sua atuação no projeto na parte técnica como na parte de soft skills.
-    \item Comente o relacionamento entre as disciplinas cursadas e a AGES.
-    \item Este projeto foi o melhor projeto trabalhado? Justifique.
-    \item Relate as lições aprendidas (retrospectiva pessoal):
-    \begin{itemize}
-        \item O que foi positivo no projeto.
-        \item O que podia ter sido melhor (em ternos de banco, desenvolvimento, arquitetura, soft skills....)
-    \end{itemize}
-\end{itemize}
-(No mínimo uma página de relato)
+Ao avaliar o resultado do Seniors -- Empregabilidade, considero que entregamos um
+MVP muito satisfatório. O produto cumpriu o objetivo de conectar profissionais com
+50 anos ou mais a empresas e oportunidades de capacitação, e todas as
+funcionalidades que permaneceram no escopo final foram implementadas. A retirada
+do envio de arquivos de currículo foi acordada com as \textit{stakeholders} e não
+representou uma pendência da equipe. Como uma versão 0.1, considero que a solução
+ficou excelente, percepção reforçada pela satisfação demonstrada pelas
+\textit{stakeholders} na apresentação final.
+
+O resultado técnico também foi positivo. A infraestrutura foi implantada no início
+da Sprint 2 e permaneceu estável durante praticamente todo o semestre. Houve apenas
+uma indisponibilidade causada pelo acúmulo de imagens de \textit{build} na instância
+EC2, que esgotou sua memória. Esse resultado teve grande mérito do colega AGES III
+Leonardo Dondoni. Por outro lado, algumas decisões revelam os limites naturais de
+um MVP acadêmico: não adquirimos um domínio próprio e mantivemos os modelos de
+e-mail padrão do Cognito. Os e-mails poderiam ter sido mais elaborados, mas a
+customização desse fluxo teria um custo de implementação desproporcional ao tempo e
+ao orçamento disponíveis.
+
+Apesar da qualidade do produto entregue, não considero este o melhor projeto das
+minhas quatro experiências na AGES. O resultado final foi mais completo e mais bem
+recebido do que os projetos das minhas passagens por AGES I e AGES III, mas o
+processo de desenvolvimento foi difícil. A presença de cinco alunos AGES IV e cinco
+AGES III concentrou muitas pessoas nos níveis de maior responsabilidade e tornou
+mais trabalhosas as decisões que deveriam orientar o restante do time. Ainda assim,
+guardo uma lembrança positiva do grupo: as aulas foram marcadas por brincadeiras,
+conversas e um ambiente descontraído, além de novamente contar com a orientação da
+Prof.ª Dra. Cristina Moreira Nunes, por quem tenho grande consideração.
+
+Minha principal contribuição foi justamente a comunicação. Em um grupo com cinco
+gestores, sinto que fui quem mais procurou iniciar conversas, reunir o time para as
+reuniões diárias, cobrar a atualização das tarefas e manter as pessoas próximas. Eu
+também valorizava os momentos informais, as brincadeiras e até o hábito de levar
+chocolates para as aulas, pois acredito que um ambiente leve facilita pedir ajuda e
+trabalhar em conjunto. Essa atuação não aparece como uma funcionalidade do sistema,
+mas foi uma parte importante do papel que procurei exercer como AGES IV.
+
+Minha maior falha de gestão foi não organizar adequadamente o backlog desde a
+Sprint 0. As histórias de usuário, os épicos e as tarefas não foram estruturados com
+a granularidade de que precisávamos, e o ClickUp acabou se tornando uma bola de
+neve. As histórias apareciam como cartões principais e o trabalho efetivo ficava
+escondido em subtarefas, dificultando lembrar o que já havia sido entregue e o que
+ainda estava pendente. Tentei reorganizar o quadro durante o semestre, mas migrar
+todo o conteúdo para novas visualizações exigia um esforço elevado. A visualização
+que passou a exibir histórias e subtarefas como cartões e os filtros por squad
+reduziram o problema, mas não o resolveram.
+
+No início do projeto, sugeri que centralizássemos no Notion uma organização do
+trabalho mais customizável e granular. Como gestor, eu poderia ter defendido essa
+proposta com
+mais firmeza ou, independentemente da ferramenta escolhida, exigido que a estrutura
+do backlog fosse validada antes do início do desenvolvimento. Percebi que tenho uma
+tendência a tentar agradar a todos e evitar decisões que possam gerar insatisfação.
+Essa postura parece colaborativa, mas, quando impede que uma escolha necessária seja
+feita, acaba prejudicando a própria equipe. Se eu pudesse reiniciar o projeto,
+dedicaria uma parte maior da Sprint 0 à definição dos épicos, ao detalhamento das
+histórias, à separação das tarefas e à escolha das visualizações de acompanhamento.
+
+A divisão por squads foi aceita pela maior parte do time e permaneceu relativamente
+estável, com poucas mudanças de integrantes. Entretanto, esperávamos que os alunos
+AGES III atuassem como líderes técnicos dessas squads, apresentando as escolhas de
+tecnologia, indicando materiais de estudo, apoiando a preparação dos ambientes e
+revisando os PRs. Na minha avaliação, isso ocorreu menos do que deveria. Muitos
+assumiram tarefas individuais de desenvolvimento, enquanto os integrantes menos
+experientes permaneceram sem uma referência técnica clara. Nós, alunos AGES IV,
+acabamos assumindo grande parte da cobrança, da revisão e da integração dos PRs.
+Essa crítica não se aplica da mesma forma a todas as contribuições, como demonstra o
+trabalho do Leonardo na infraestrutura, mas foi uma dificuldade recorrente na
+organização geral do projeto.
+
+Também percebi uma mudança na dinâmica de colaboração quando comparada às minhas
+experiências anteriores. O uso de ferramentas de inteligência artificial esteve
+mais presente e, na minha percepção, o trabalho se tornou mais individual e
+transacional. Muitas interações resumiam-se a informar que uma tarefa seria
+iniciada ou que um PR estava aberto. Senti falta de integrantes acompanhando as
+dificuldades uns dos outros, oferecendo ajuda durante a implementação e discutindo
+as decisões tomadas. Não atribuo esse comportamento apenas à inteligência
+artificial, mas acredito que seu uso alterou a forma como parte do time se
+relacionou com as tarefas e com o aprendizado proporcionado pelo projeto.
+
+Os conhecimentos desenvolvidos nas disciplinas do curso foram necessários em todas
+as etapas: o levantamento e a organização de requisitos orientaram as histórias de
+usuário; a modelagem de dados sustentou os currículos, as vagas e as candidaturas; a
+arquitetura e a infraestrutura permitiram disponibilizar a aplicação; e as práticas
+de testes e qualidade se tornaram essenciais antes da apresentação final. A AGES,
+porém, acrescentou uma dimensão que essas competências isoladas não conseguem
+reproduzir. O desafio não era apenas saber como modelar, implementar ou testar, mas
+coordenar pessoas com níveis diferentes de experiência para que essas atividades
+acontecessem na ordem e no momento adequados.
+
+A evolução das sprints tornou esse aprendizado bastante claro. Nas primeiras
+entregas, atuamos de forma reativa e dependemos de mobilizações próximas ao
+\textit{code freeze} para revisar PRs e concluir tarefas. Na sprint final, cobramos
+o encerramento do desenvolvimento com antecedência, testamos o sistema em produção,
+corrigimos pendências menores e preparamos o fluxo de demonstração. A tranquilidade
+dessa última etapa mostrou que a pressão das entregas anteriores não era inevitável:
+ela estava relacionada à falta de acompanhamento contínuo, à integração tardia e à
+pouca visibilidade do trabalho.
+
+Encerro a AGES IV satisfeito com o produto entregue e com a evolução do time, mas
+consciente de que um bom resultado não torna o processo automaticamente bom. Aprendi
+que gestão não consiste em apenas cobrar tarefas ou resolver problemas quando o
+prazo se aproxima. É necessário estruturar o trabalho, tornar bloqueios visíveis,
+definir responsabilidades, acompanhar as integrações e tomar decisões mesmo quando
+não será possível agradar a todos. Ao mesmo tempo, continuo acreditando que a
+comunicação e um ambiente acolhedor são fundamentais. O equilíbrio entre firmeza e
+proximidade foi a principal lição que esta experiência deixou para minha atuação
+profissional.
