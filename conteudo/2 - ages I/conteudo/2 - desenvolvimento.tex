@@ -57,9 +57,10 @@ modelo idealizado.
     \label{fig:components-arch}
 \end{figure}
 
-Na parte do servidor, as \acp{api} \ac{rest} da aplicação e de autenticação
-se comunicam com seus respectivos recursos, como o banco de dados e o serviço
-de autenticação. Os clientes móveis e Web enviam requisições a esse servidor.
+Na parte do servidor, a aplicação e o serviço de autenticação expõem
+\acp{api}. Essas interfaces seguem o estilo arquitetural \ac{rest} e se
+comunicam com seus respectivos recursos, como o banco de dados e o serviço de
+autenticação. Os clientes móveis e Web enviam requisições a esse servidor.
 
 \subsection{Protótipos das Telas Desenvolvidas}
 Os primeiros \textit{mockups} do aplicativo móvel foram elaborados no Figma.
@@ -148,7 +149,7 @@ Figuras~\ref{fig:web-landing}, \ref{fig:web-procedures}, \ref{fig:web-invite} e
 \end{figure}
 
 \subsection{Tecnologias Utilizadas}
-As \acp{api} da aplicação e de autenticação foram implementadas em Kotlin com
+As APIs da aplicação e de autenticação foram implementadas em Kotlin com
 Spring Boot, usando Gradle para gerenciar as dependências
 \cite{kotlin,spring-boot,gradle}. Os testes de sistema foram mantidos no
 repositório “E2E Tests” e utilizaram Selenium \cite{selenium}. A autenticação
@@ -159,5 +160,5 @@ Além disso, foram utilizados recursos da \ac{aws}, incluindo \ac{s3} e
 \ac{eks}. Para facilitar a configuração em diferentes ambientes e melhorar a
 escalabilidade, optamos pelo uso de contêineres Docker. No \textit{frontend},
 TypeScript foi a linguagem principal, com React Native e Expo no desenvolvimento
-móvel e React JS no desenvolvimento web
+móvel e React no desenvolvimento web
 \cite{aws-docs,docker,typescript,react-native,expo,react}.

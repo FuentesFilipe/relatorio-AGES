@@ -58,7 +58,7 @@ Entre as decisões de modelagem, destacam-se o uso de \acp{uuid} como chaves pri
 a separação dos perfis de candidato, empresa e administrador a partir de uma
 entidade comum de usuário e o emprego de tabelas associativas para as relações
 muitos-para-muitos entre currículos, vagas, cursos e habilidades. O modelo também
-prevê restrições de integridade, como validações para CPF, CNPJ e idade mínima dos
+prevê restrições de integridade, como validações para \ac{cpf}, \ac{cnpj} e idade mínima dos
 candidatos, bem como a exclusão lógica dos registros para preservar o histórico.
 
 A documentação detalhada, incluindo o dicionário de dados e as decisões de
@@ -66,8 +66,8 @@ modelagem, está disponível na \textit{Wiki} do projeto em:
 \url{https://tools.ages.pucrs.br/2026-2/2lm-4lm/seniors-empregabilidade/seniors-empregabilidade-wiki/-/wikis/Banco%20de%20Dados}.
 
 \subsection{Arquitetura Utilizada}
-A arquitetura definida para o projeto utiliza serviços da \ac{aws}, concentrados
-na região \textit{us-east-1} e em uma única \ac{vpc}. O desenho prioriza serviços
+A arquitetura definida para o projeto utiliza serviços da AWS, concentrados
+na região \textit{us-east-1} e em uma única VPC. O desenho prioriza serviços
 gerenciados, mantendo em instância dedicada apenas a API da aplicação. A interface
 Web foi hospedada no AWS Amplify, e a autenticação dos usuários foi centralizada no
 Amazon Cognito. O planejamento original também previa a disponibilização por meio
@@ -84,18 +84,18 @@ próprio. A estrutura é apresentada na Figura~\ref{fig:infra-seniors}.
 \end{figure}
 
 O \textit{backend} executa uma API FastAPI em um contêiner Docker hospedado em uma
-instância \ac{ec2}, posicionada em uma sub-rede pública. A API valida os tokens
-emitidos pelo Cognito, comunica-se com o banco PostgreSQL hospedado no Amazon RDS,
+instância EC2, posicionada em uma sub-rede pública. A API valida os tokens
+emitidos pelo Cognito, comunica-se com o banco PostgreSQL hospedado no Amazon \ac{rds},
 em sub-rede privada, e utiliza o Amazon S3 para o armazenamento de arquivos da
 aplicação. A separação entre as sub-redes e os grupos de segurança restringe o
 acesso ao banco de dados à própria API. O envio de arquivos de currículo não foi
 implementado, pois essa funcionalidade foi retirada do escopo em acordo com as
 \textit{stakeholders}.
 
-O fluxo de \ac{cicd} foi separado para os dois repositórios de código. Os
+O fluxo de CI/CD foi separado para os dois repositórios de código. Os
 \textit{pull requests} são validados pelo GitHub Actions. Após a integração na
 \textit{branch} de produção, o AWS CodeBuild constrói a imagem Docker da API,
-publica-a no Amazon ECR e solicita a atualização da instância EC2. Em paralelo, o
+publica-a no Amazon \ac{ecr} e solicita a atualização da instância EC2. Em paralelo, o
 AWS Amplify realiza o \textit{build} e a publicação do \textit{frontend}.
 
 A infraestrutura foi implantada no início da Sprint 2, sob responsabilidade
@@ -104,7 +104,7 @@ restante do semestre. A única indisponibilidade relevante ocorreu quando a
 instância EC2 esgotou sua memória devido ao acúmulo de imagens geradas pelos
 \textit{builds} do \textit{backend}. Para as comunicações de autenticação, foram
 mantidos os modelos de e-mail padrão do Cognito, uma decisão compatível com o
-orçamento e o tempo disponíveis para o MVP.
+orçamento e o tempo disponíveis para o \ac{mvp}.
 
 A documentação detalhada da infraestrutura implantada, incluindo o diagrama de
 arquitetura, está disponível na \textit{Wiki} do projeto em:

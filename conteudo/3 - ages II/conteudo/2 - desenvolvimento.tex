@@ -51,7 +51,7 @@ A estrutura arquitetural do projeto é baseada no design de interação entre co
 
 A API do projeto Soul Amada é executada em um container Docker hospedado em uma instância \ac{ec2} dentro de uma \ac{vpc} privada, com comunicação direta com o banco de dados da aplicação. O \textit{backend} utiliza o Supabase, uma solução escalável e autogerenciada, para armazenar os dados de forma eficiente.
 
-Para o armazenamento de arquivos, um bucket do \ac{s3} foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. É ilustrada esta arquitetura de \textit{cloud} na figura 17.
+Para o armazenamento de arquivos, um bucket do S3 foi integrado, simplificando o gerenciamento de dados pela API. Além disso, um API Gateway foi configurado para redirecionar chamadas para a instância EC2, garantindo acesso facilitado e organizado aos serviços da aplicação. É ilustrada esta arquitetura de \textit{cloud} na figura 17.
 
 \begin{figure}[H]
   \centering
