@@ -178,3 +178,29 @@ Start with `git status --short`, this file, `main.tex`, and the files relevant t
 the requested chapter or topic. Preserve unrelated user changes. Keep this file
 up to date when the user confirms durable project facts, resolves the gaps above,
 or establishes a working build workflow. Keep transient logs out of this file.
+
+## Next-session handoff
+
+The AGES IV chapter now has drafted introduction, development, Sprint 0--4
+activities, and a condensed conclusion of roughly 634 words. The next substantive
+step is to review the narratives and conclusions of all four AGES chapters as one
+trajectory, then draft `conteudo/6 - consideracoes/consideracoes.tex`.
+
+For that draft:
+
+- Synthesize progression from implementation in AGES I, through data modeling in
+  AGES II and technical leadership/architecture in AGES III, to project management
+  in AGES IV.
+- Address the course-level prompts already present in the file: professional
+  evolution, hard and soft skills, lessons from successes and failures, how the
+  author's view of Software Engineering changed, and criticism/praise/suggestions
+  regarding AGES.
+- Avoid merely repeating the four project conclusions. Focus on changes across
+  time, recurring themes (especially communication, asking for help, technical and
+  managerial leadership, team organization, and balancing firmness with empathy),
+  and evidence from the sprint narratives.
+- Preserve the author's candid first-person voice and do not invent a final Projeto
+  Destaque result; voting had not occurred when the report was drafted.
+- Before writing, re-read the presentation chapter, all four AGES conclusions, and
+  the most relevant sprint reflections. Ask for any missing personal reflection
+  that cannot be supported by those sources.
